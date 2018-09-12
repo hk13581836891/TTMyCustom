@@ -1,0 +1,23 @@
+//
+//  MyCustomPrefix.pch
+//  MyCustom
+//
+//  Created by houke on 2018/9/12.
+//  Copyright © 2018年 houke. All rights reserved.
+//
+
+#ifndef MyCustomPrefix_pch
+#define MyCustomPrefix_pch
+
+#import "ColorDefine.h"
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import "UILabel+InitExtension.h"
+#import "UIButton+InitExtension.h"
+#import "UIImageView+InitExtension.h"
+#import "Masonry.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* MyCustomPrefix_pch */
