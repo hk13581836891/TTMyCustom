@@ -7,16 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TTSbuscribeAuthorViewModel;
 
 @interface TTSubscibeAuthorView : UICollectionView
 
+@property (nonatomic, strong) TTSbuscribeAuthorViewModel *vm;
+
 @end
 
+@class TTSbuscribeAuthorModel;
 @interface TTSubscibeAuthorCollectionCell : UICollectionViewCell
-- (void)setIndexPat:(NSIndexPath *)indexPath animationStopBlock:(void (^)(NSIndexPath *))block;
 
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, strong) void (^animationStopBlock)(NSIndexPath *);
+@property (nonatomic, strong) TTSbuscribeAuthorModel *model;
+- (void)setIndexPath:(NSIndexPath *)indexPath animationStopBlock:(void (^)(NSIndexPath *))block;
 @end
 
 @interface TTSubscibeAuthorMoreCell : UICollectionViewCell

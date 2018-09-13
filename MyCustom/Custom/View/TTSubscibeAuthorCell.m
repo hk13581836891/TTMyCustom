@@ -8,6 +8,7 @@
 
 #import "TTSubscibeAuthorCell.h"
 #import "TTSubscibeAuthorView.h"
+#import "TTSbuscribeAuthorViewModel.h"
 
 @interface TTSubscibeAuthorCell ()
 
@@ -18,6 +19,11 @@
 @end
 
 @implementation TTSubscibeAuthorCell
+
+-(void)setVm:(TTSbuscribeAuthorViewModel *)vm {
+    _vm = vm;
+    _subscibeView.vm = vm;
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

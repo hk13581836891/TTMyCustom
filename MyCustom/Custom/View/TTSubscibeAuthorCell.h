@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TTSbuscribeAuthorViewModel;
 
 @interface TTSubscibeAuthorCell : UITableViewCell
 
+@property (nonatomic, strong) TTSbuscribeAuthorViewModel *vm;
 @end
 

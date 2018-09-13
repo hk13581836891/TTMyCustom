@@ -8,21 +8,40 @@
 
 #import "TTSubscibeAuthorView.h"
 #import "YTAnimation.h"
+#import "TTSbuscribeAuthorViewModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
-
-#define itmeWidth 130
-#define itmeHeight 158
+#define itemWidth 130
+#define itemHeight 158
 
 @interface TTSubscibeAuthorView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, assign) NSInteger itmeCount;
+@property (nonatomic, strong) NSMutableArray *tempArr;
 @end
 
 @implementation TTSubscibeAuthorView
-
+-(NSMutableArray *)tempArr{
+    if (!_tempArr) {
+        _tempArr = [NSMutableArray array];
+    }
+    return _tempArr;
+}
+-(void)setVm:(TTSbuscribeAuthorViewModel *)vm
+{
+    _vm = vm;
+    
+    for (int i = 0; i < 5; i++) {
+        TTSbuscribeAuthorModel *model = vm.authorArr[i];
+        [self.tempArr addObject:model];
+    }
+    for (int i = 0; i < 5; i++) {
+        [vm.authorArr removeObjectAtIndex:i];
+    }
+}
 - (instancetype)init
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = 0;
+    layout.minimumLineSpacing = 8;
     layout.minimumInteritemSpacing = 8;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.sectionInset =UIEdgeInsetsMake(0, 0, 0, TTMargin);
@@ -37,8 +56,7 @@
         
         [self registerClass:[TTSubscibeAuthorCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCollectionCell class])];
         [self registerClass:[TTSubscibeAuthorMoreCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorMoreCell class])];
-        
-        self.itmeCount = 5;
+    
     }
     return self;
 }
@@ -46,54 +64,41 @@
 #pragma mark collectionView数据源方法
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"--%i", self.itmeCount);
-    return _itmeCount + 1;
+    return self.tempArr.count + 1;
 }
+
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (indexPath.item == _itmeCount) {
+    if (indexPath.item == self.tempArr.count) {
         TTSubscibeAuthorMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorMoreCell class]) forIndexPath:indexPath];
         return cell;
     }
     
     TTSubscibeAuthorCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCollectionCell class]) forIndexPath:indexPath];
-    cell.indexPath = indexPath;
-    [cell setAnimationStopBlock:^(NSIndexPath *indexPath) {
-        NSLog(@"---%@",[NSThread currentThread]);
-                    [self performBatchUpdates:^{
-        
-                        //delete the cell you selected
-                        //        [sourceArr removeObjectAtIndex:indexPath.row];
-                        self.itmeCount = self.itmeCount - 1;
-                        [self deleteItemsAtIndexPaths:@[indexPath]];
-        
-                    } completion:^(BOOL finished) {
-        
-                        [self reloadData];
-                    }];
+    cell.model = _tempArr[indexPath.item];
+    cell.hidden = NO;
+    [cell setIndexPath:indexPath animationStopBlock:^(NSIndexPath *indexPath) {
+        [self performBatchUpdates:^{
+            
+            self.userInteractionEnabled = NO;
+            //delete the cell you selected
+            [self.tempArr removeObjectAtIndex:indexPath.item];
+            [self deleteItemsAtIndexPaths:@[indexPath]];
+            
+        } completion:^(BOOL finished) {
+            self.userInteractionEnabled = YES;
+            [self reloadData];
+        }];
+
     }];
-//    [cell setIndexPat:indexPath animationStopBlock:^(NSIndexPath *indexPath) {
-//
-//        NSLog(@"---%@",[NSThread currentThread]);
-//            [self performBatchUpdates:^{
-//
-//                //delete the cell you selected
-//                //        [sourceArr removeObjectAtIndex:indexPath.row];
-//                self.itmeCount = self.itmeCount - 1;
-//                [self deleteItemsAtIndexPaths:@[indexPath]];
-//
-//            } completion:^(BOOL finished) {
-//
-//                [self reloadData];
-//            }];
-//    }];
     return cell;
 }
+
 #pragma mark layout代理方法
 -(CGSize )collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.item < _itmeCount) {
-        return CGSizeMake(itmeWidth, itmeHeight);
+    if (indexPath.item == _tempArr.count) {
+        return CGSizeMake(59, itemHeight);
     }
-    return CGSizeMake(59, itmeHeight);
+    return CGSizeMake(itemWidth, itemHeight);
 }
 
 @end
@@ -105,24 +110,35 @@
 @property (nonatomic, strong) UILabel *nameLab;
 @property (nonatomic, strong) UILabel *descLab;
 @property (nonatomic, strong) UIButton *subscibeBtn;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) void (^animationStopBlock)(NSIndexPath *);
 
 @end
 
 @implementation TTSubscibeAuthorCollectionCell
 
-- (void)setIndexPat:(NSIndexPath *)indexPath animationStopBlock:(void (^)(NSIndexPath *))block {
+-(void)setModel:(TTSbuscribeAuthorModel *)model
+{
+    _model = model;
+    [_avatarImg sd_setImageWithURL:[NSURL URLWithString:model.authorHeadImage] placeholderImage:[UIImage imageNamed:@"custom_avatar_subscribe"]];
+    _nameLab.text = model.authorName;
+    _descLab.text = model.authorProfile ? : @"  ";
     
-//    self.indexPath = indexPath;
-//    self.animationStopBlock = block;
-//    self.nameLab.text = [NSString stringWithFormat:@"%i",self.indexPath.item];
+}
+
+- (void)setIndexPath:(NSIndexPath *)indexPath animationStopBlock:(void (^)(NSIndexPath *))block {
+    
+    self.indexPath = indexPath;
+    self.animationStopBlock = block;
 }
 -(void)subScribeBtnClick {
     
     [YTAnimation fadeAnimation:self];
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    
-    self.animationStopBlock(self.indexPath);
+    if ([anim valueForKey:@"animType"] ){
+        self.animationStopBlock(self.indexPath);
+    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -140,7 +156,6 @@
 -(UIImageView *)avatarImg {
     if (!_avatarImg) {
         _avatarImg = [[UIImageView alloc] initWithImageCircle:[UIImage imageNamed:@"custom_avatar_subscribe"]];
-        _avatarImg.backgroundColor = [UIColor yellowColor];
     }
     return _avatarImg;
 }
@@ -174,6 +189,8 @@
     [_avatarImg makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(12);
         make.centerX.equalTo(self);
+        make.width.equalTo(54);
+        make.height.equalTo(54);
     }];
     
     [_nameLab makeConstraints:^(MASConstraintMaker *make) {

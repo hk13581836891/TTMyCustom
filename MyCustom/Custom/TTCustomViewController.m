@@ -12,8 +12,12 @@
 #import "TTSetCusomView.h"
 #import "TTConcernTopView.h"
 #import "TTNoConcernCell.h"
+#import "TTSbuscribeAuthorViewModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface TTCustomViewController ()
+
+@property (nonatomic, strong) TTSbuscribeAuthorViewModel *authorVM;
 
 @end
 
@@ -21,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
   
     [self.tableView registerClass:[TTSubscibeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscibeNewsCell class])];
@@ -28,6 +34,12 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
     
+    self.authorVM = [TTSbuscribeAuthorViewModel new];
+    [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
+        if (isSuccess) {
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -37,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        return _authorVM.authorArr.count > 0 ? 1 : 0;
     }
     return 20;
 }
@@ -69,6 +81,7 @@
     
     if (indexPath.section == 0) {
         TTSubscibeAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscibeAuthorCell class])];
+        cell.vm = _authorVM;
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
