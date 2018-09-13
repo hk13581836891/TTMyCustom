@@ -12,6 +12,3 @@
 
 @end
 
-@interface TTSubscibeAuthorView : UIView
-
-@end

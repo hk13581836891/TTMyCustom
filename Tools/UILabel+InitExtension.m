@@ -17,6 +17,7 @@
     lab.textColor = color;
     lab.font = font;
     lab.textAlignment = NSTextAlignmentCenter;
+    lab.numberOfLines = 0;
     [lab sizeToFit];
     return lab;
 }

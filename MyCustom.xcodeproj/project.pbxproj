@@ -93,6 +93,8 @@
 		D398B2F6214920C100C0653F /* UIImageView+InitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */; };
 		D398B2F92149247900C0653F /* custom_avatar_subscribe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D398B2F72149247800C0653F /* custom_avatar_subscribe@3x.png */; };
 		D398B2FA2149247900C0653F /* custom_avatar_subscribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D398B2F82149247800C0653F /* custom_avatar_subscribe@2x.png */; };
+		D3A5BA79214A04B9000B4394 /* TTSubscibeAuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */; };
+		D3A5BA7C214A3087000B4394 /* YTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BA7B214A3086000B4394 /* YTAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +244,10 @@
 		D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+InitExtension.m"; sourceTree = "<group>"; };
 		D398B2F72149247800C0653F /* custom_avatar_subscribe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_avatar_subscribe@3x.png"; sourceTree = "<group>"; };
 		D398B2F82149247800C0653F /* custom_avatar_subscribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_avatar_subscribe@2x.png"; sourceTree = "<group>"; };
+		D3A5BA77214A04B9000B4394 /* TTSubscibeAuthorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscibeAuthorView.h; sourceTree = "<group>"; };
+		D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscibeAuthorView.m; sourceTree = "<group>"; };
+		D3A5BA7A214A3086000B4394 /* YTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAnimation.h; sourceTree = "<group>"; };
+		D3A5BA7B214A3086000B4394 /* YTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +329,8 @@
 				D398B1272148DE7300C0653F /* TTSetCusomView.m */,
 				D398B11D2148DD3A00C0653F /* TTSubscibeAuthorCell.h */,
 				D398B11E2148DD3A00C0653F /* TTSubscibeAuthorCell.m */,
+				D3A5BA77214A04B9000B4394 /* TTSubscibeAuthorView.h */,
+				D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */,
 				D398B1202148DDFA00C0653F /* TTSubscibeNewsCell.h */,
 				D398B1212148DDFA00C0653F /* TTSubscibeNewsCell.m */,
 				D398B1232148DE3800C0653F /* TTConcernTopView.h */,
@@ -466,6 +474,8 @@
 		D398B2A42148E6CE00C0653F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				D3A5BA7A214A3086000B4394 /* YTAnimation.h */,
+				D3A5BA7B214A3086000B4394 /* YTAnimation.m */,
 				D398B2A52148E6EE00C0653F /* ColorDefine.h */,
 				D398B2A62148E76B00C0653F /* MyCustomPrefix.pch */,
 				D398B2AC21490DC400C0653F /* UILabel+InitExtension.h */,
@@ -641,6 +651,7 @@
 				D398B2972148E0C100C0653F /* NSObject+MJKeyValue.m in Sources */,
 				D398B2A02148E0C200C0653F /* NSObject+MJMember.m in Sources */,
 				D398B11B2148DBA400C0653F /* MASViewAttribute.m in Sources */,
+				D3A5BA7C214A3087000B4394 /* YTAnimation.m in Sources */,
 				D398B2B121490F6B00C0653F /* UIButton+InitExtension.m in Sources */,
 				D398B0E02148DACB00C0653F /* ViewController.m in Sources */,
 				D398B15B2148E09700C0653F /* AFHTTPSessionManager.m in Sources */,
@@ -676,6 +687,7 @@
 				D398B1162148DBA400C0653F /* MASLayoutConstraint.m in Sources */,
 				D398B15A2148E09700C0653F /* AFURLResponseSerialization.m in Sources */,
 				D398B29E2148E0C200C0653F /* MJArgument.m in Sources */,
+				D3A5BA79214A04B9000B4394 /* TTSubscibeAuthorView.m in Sources */,
 				D398B29B2148E0C100C0653F /* MJTypeEncoding.m in Sources */,
 				D398B29C2148E0C200C0653F /* NSObject+MJCoding.m in Sources */,
 				D398B15F2148E09700C0653F /* AFSecurityPolicy.m in Sources */,
