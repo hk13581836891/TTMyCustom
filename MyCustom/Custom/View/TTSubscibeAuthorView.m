@@ -35,7 +35,7 @@
         [self.tempArr addObject:model];
     }
     for (int i = 0; i < 5; i++) {
-        [vm.authorArr removeObjectAtIndex:i];
+        [_vm.authorArr removeObjectAtIndex:0];
     }
 }
 - (instancetype)init
@@ -76,20 +76,30 @@
     TTSubscibeAuthorCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCollectionCell class]) forIndexPath:indexPath];
     cell.model = _tempArr[indexPath.item];
     cell.hidden = NO;
+    @weakify(self)
     [cell setIndexPath:indexPath animationStopBlock:^(NSIndexPath *indexPath) {
-        [self performBatchUpdates:^{
-            
-            self.userInteractionEnabled = NO;
-            //delete the cell you selected
-            [self.tempArr removeObjectAtIndex:indexPath.item];
-            [self deleteItemsAtIndexPaths:@[indexPath]];
-            
-        } completion:^(BOOL finished) {
-            self.userInteractionEnabled = YES;
-            [self reloadData];
-        }];
-
+        @strongify(self)
+            [self performBatchUpdates:^{
+                self.userInteractionEnabled = NO;
+                //delete the cell you selected
+                [self.tempArr removeObjectAtIndex:indexPath.item];
+                [self deleteItemsAtIndexPaths:@[indexPath]];
+                
+            } completion:^(BOOL finished) {
+                self.userInteractionEnabled = YES;
+                //作者全部订阅完成时 直接刷新为作者新闻
+                if (self.tempArr.count > 1) {
+                    if (self.vm.authorArr.count > 0) {
+                        [self.tempArr addObject:self.vm.authorArr[0]];
+                        [self.vm.authorArr removeObjectAtIndex:0];
+                    }
+                }else{
+                    self.backgroundColor = UIColor.yellowColor;
+                }
+                [self reloadData];
+            }];
     }];
+    
     return cell;
 }
 
@@ -132,7 +142,9 @@
     self.animationStopBlock = block;
 }
 -(void)subScribeBtnClick {
+    //1 add
     
+    //2动画
     [YTAnimation fadeAnimation:self];
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{

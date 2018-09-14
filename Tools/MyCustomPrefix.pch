@@ -15,6 +15,7 @@
 #import "UILabel+InitExtension.h"
 #import "UIButton+InitExtension.h"
 #import "UIImageView+InitExtension.h"
+#import "UIView+InitExtension.h"
 #import "Masonry.h"
 #import "HttpTool.h"
 #import "UIImageView+WebCache.h"

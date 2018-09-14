@@ -13,19 +13,33 @@
 #import "TTConcernTopView.h"
 #import "TTNoConcernCell.h"
 #import "TTSbuscribeAuthorViewModel.h"
+#import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
 @interface TTCustomViewController ()
 
 @property (nonatomic, strong) TTSbuscribeAuthorViewModel *authorVM;
+@property (nonatomic, strong) TTConcernTeamViewModel *conTeamVM;
 
 @end
 
 @implementation TTCustomViewController
 
+-(TTSbuscribeAuthorViewModel *)authorVM{
+    if (!_authorVM) {
+        _authorVM = [TTSbuscribeAuthorViewModel new];
+    }
+    return _authorVM;
+}
+
+-(TTConcernTeamViewModel *)conTeamVM{
+    if (!_conTeamVM) {
+        _conTeamVM  = [TTConcernTeamViewModel new];
+    }
+    return _conTeamVM;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
   
@@ -34,12 +48,17 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
     
-    self.authorVM = [TTSbuscribeAuthorViewModel new];
     [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
         if (isSuccess) {
             [self.tableView reloadData];
         }
     }];
+    [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
+        if (isSuccess) {
+            [self.tableView reloadData];
+        }
+    }];
+    
 }
 
 #pragma mark - Table view data source
@@ -63,8 +82,8 @@
 }
 -(UIView * )tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        
         TTConcernTopView *topView = [TTConcernTopView new];
+        topView.vm = _conTeamVM;
         return topView;
     }
     return nil;
@@ -72,7 +91,7 @@
 
 -(CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 1) {
-        return 70;
+        return 80;
     }
     
     return 0.00001;

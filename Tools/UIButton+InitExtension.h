@@ -15,9 +15,22 @@ typedef enum : NSUInteger {
     Center,
 } ButtonImageDirection;
 
+typedef enum : NSUInteger {
+    Shrink,
+    Enlarge,
+} Hotspot;
+
 @interface UIButton (InitExtension)
 
 -(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image;
--(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image imgDirection:(ButtonImageDirection)direction ;
+-(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image imgDirection:(ButtonImageDirection)direction backColor:(UIColor *)backColor;
+-(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image imgDirection:(ButtonImageDirection)direction backColor:(UIColor *)backColor hotspot:(Hotspot)hotspot;
+
+@end
+
+@interface ShrinkHotspotButton : UIButton
+
+@end
+@interface EnlargeHotspotButton : UIButton
 
 @end

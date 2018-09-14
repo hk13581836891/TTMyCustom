@@ -48,7 +48,7 @@
 -(UIButton *)moreBtn
 {
     if (!_moreBtn) {
-        _moreBtn = [[UIButton alloc] initWithText:@"更多" textColor:HEXCOLOR(0x666666) font:PingFangSC_Regular(13) image:[UIImage imageNamed:@"custom_list_right"] imgDirection:1];
+        _moreBtn = [[UIButton alloc] initWithText:@"更多" textColor:HEXCOLOR(0x666666) font:PingFangSC_Regular(13) image:[UIImage imageNamed:@"custom_list_right"] imgDirection:1 backColor:nil];
     }
     return _moreBtn;
 }

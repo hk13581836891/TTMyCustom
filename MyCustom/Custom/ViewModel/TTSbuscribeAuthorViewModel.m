@@ -30,6 +30,8 @@
             
             NSArray *array = [TTSbuscribeAuthorModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]];
             [self.authorArr addObjectsFromArray:array];
+            
+            self.authorArr = [NSMutableArray arrayWithArray:[self.authorArr subarrayWithRange:NSMakeRange(0, 10)]];
             finish(YES);
         }else{
             finish(NO);
