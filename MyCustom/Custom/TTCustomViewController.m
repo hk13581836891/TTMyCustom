@@ -7,27 +7,28 @@
 //
 
 #import "TTCustomViewController.h"
-#import "TTSubscibeAuthorCell.h"
-#import "TTSubscibeNewsCell.h"
+#import "TTSubscribeAuthorCell.h"
+#import "TTSubscribeNewsCell.h"
 #import "TTSetCusomView.h"
 #import "TTConcernTopView.h"
 #import "TTNoConcernCell.h"
-#import "TTSbuscribeAuthorViewModel.h"
+#import "TTSubscribeAuthorViewModel.h"
 #import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
 @interface TTCustomViewController ()
 
-@property (nonatomic, strong) TTSbuscribeAuthorViewModel *authorVM;
+@property (nonatomic, strong) TTSubscribeAuthorViewModel *authorVM;
 @property (nonatomic, strong) TTConcernTeamViewModel *conTeamVM;
+@property (nonatomic, assign) NSInteger subscribeFlag;
 
 @end
 
 @implementation TTCustomViewController
 
--(TTSbuscribeAuthorViewModel *)authorVM{
+-(TTSubscribeAuthorViewModel *)authorVM{
     if (!_authorVM) {
-        _authorVM = [TTSbuscribeAuthorViewModel new];
+        _authorVM = [TTSubscribeAuthorViewModel new];
     }
     return _authorVM;
 }
@@ -38,13 +39,14 @@
     }
     return _conTeamVM;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.subscribeFlag = 1;
     
     self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
-  
-    [self.tableView registerClass:[TTSubscibeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscibeNewsCell class])];
-    [self.tableView registerClass:[TTSubscibeAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCell class])];
+    [self.tableView registerClass:[TTSubscribeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeNewsCell class])];
+    [self.tableView registerClass:[TTSubscribeAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCell class])];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
     
@@ -68,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return _authorVM.authorArr.count > 0 ? 1 : 0;
+        return 1;
     }
     return 20;
 }
@@ -76,6 +78,9 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
+        if (self.subscribeFlag == 1) {
+            return 152;
+        }
         return 215;
     }
     return 60;
@@ -99,9 +104,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        TTSubscibeAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscibeAuthorCell class])];
-        cell.vm = _authorVM;
-        return cell;
+        if (self.subscribeFlag == 0) {
+            TTSubscribeAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscribeAuthorCell class]) forIndexPath:indexPath];
+            cell.vm = _authorVM;
+            @weakify(self)
+            cell.subscribeView.reloadCell = ^{
+                @strongify(self);
+                self.subscribeFlag = 0;
+                [self.tableView reloadData];
+            };
+            return cell;
+        }else{
+            TTSubscribeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscribeNewsCell class]) forIndexPath:indexPath];
+            return cell;
+        }
+        
+        
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     cell.backgroundColor = [UIColor yellowColor];

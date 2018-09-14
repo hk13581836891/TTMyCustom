@@ -10,5 +10,5 @@
 
 @interface UIImageView (InitExtension)
 
-- (instancetype)initWithImageCircle:(UIImage *)image ;
+- (instancetype)initWithImageCircle:(UIImage *)image cornerRadius:(CGFloat)cornerRadius;
 @end

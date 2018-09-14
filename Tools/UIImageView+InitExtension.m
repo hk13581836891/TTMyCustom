@@ -10,11 +10,11 @@
 
 @implementation UIImageView (InitExtension)
 
-- (instancetype)initWithImageCircle:(UIImage *)image {
+- (instancetype)initWithImageCircle:(UIImage *)image cornerRadius:(CGFloat)cornerRadius{
     
     UIImageView *img = [[UIImageView alloc] initWithImage:image];
     img.layer.masksToBounds = YES;
-    img.layer.cornerRadius = image.size.width / 2 ;
+    img.layer.cornerRadius = cornerRadius;
     [img sizeToFit];
     
     return img;

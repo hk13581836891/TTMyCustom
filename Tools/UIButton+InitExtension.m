@@ -19,6 +19,7 @@
     [btn sizeToFit];
     return btn;
 }
+
 -(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image imgDirection:(ButtonImageDirection)direction backColor:(UIColor *)backColor hotspot:(Hotspot)hotspot{
     if (hotspot == 1) {
         EnlargeHotspotButton *btn = [EnlargeHotspotButton buttonWithType:(UIButtonTypeCustom)];

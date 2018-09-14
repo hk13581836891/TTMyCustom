@@ -6,37 +6,40 @@
 //  Copyright © 2018年 houke. All rights reserved.
 //
 
-#import "TTSubscibeAuthorView.h"
+#import "TTSubscribeAuthorView.h"
 #import "YTAnimation.h"
-#import "TTSbuscribeAuthorViewModel.h"
+#import "TTSubscribeAuthorViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
 #define itemWidth 130
 #define itemHeight 158
 
-@interface TTSubscibeAuthorView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface TTSubscribeAuthorView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, assign) NSInteger itmeCount;
 @property (nonatomic, strong) NSMutableArray *tempArr;
 @end
 
-@implementation TTSubscibeAuthorView
+@implementation TTSubscribeAuthorView
 -(NSMutableArray *)tempArr{
     if (!_tempArr) {
         _tempArr = [NSMutableArray array];
     }
     return _tempArr;
 }
--(void)setVm:(TTSbuscribeAuthorViewModel *)vm
+-(void)setVm:(TTSubscribeAuthorViewModel *)vm
 {
     _vm = vm;
-    
+    if (vm.authorArr.count == 0) {
+        return;
+    }
     for (int i = 0; i < 5; i++) {
-        TTSbuscribeAuthorModel *model = vm.authorArr[i];
+        TTSubscribeAuthorModel *model = vm.authorArr[i];
         [self.tempArr addObject:model];
     }
     for (int i = 0; i < 5; i++) {
         [_vm.authorArr removeObjectAtIndex:0];
     }
+    [self reloadData];
 }
 - (instancetype)init
 {
@@ -54,8 +57,8 @@
         self.alwaysBounceHorizontal = YES;
         self.showsHorizontalScrollIndicator = NO;
         
-        [self registerClass:[TTSubscibeAuthorCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCollectionCell class])];
-        [self registerClass:[TTSubscibeAuthorMoreCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorMoreCell class])];
+        [self registerClass:[TTSubscribeAuthorCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCollectionCell class])];
+        [self registerClass:[TTSubscribeAuthorMoreCell class] forCellWithReuseIdentifier:NSStringFromClass([TTSubscribeAuthorMoreCell class])];
     
     }
     return self;
@@ -69,11 +72,11 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (indexPath.item == self.tempArr.count) {
-        TTSubscibeAuthorMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorMoreCell class]) forIndexPath:indexPath];
+        TTSubscribeAuthorMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscribeAuthorMoreCell class]) forIndexPath:indexPath];
         return cell;
     }
     
-    TTSubscibeAuthorCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscibeAuthorCollectionCell class]) forIndexPath:indexPath];
+    TTSubscribeAuthorCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCollectionCell class]) forIndexPath:indexPath];
     cell.model = _tempArr[indexPath.item];
     cell.hidden = NO;
     @weakify(self)
@@ -88,13 +91,16 @@
             } completion:^(BOOL finished) {
                 self.userInteractionEnabled = YES;
                 //作者全部订阅完成时 直接刷新为作者新闻
-                if (self.tempArr.count > 1) {
+                if (self.tempArr.count > 0) {
                     if (self.vm.authorArr.count > 0) {
                         [self.tempArr addObject:self.vm.authorArr[0]];
                         [self.vm.authorArr removeObjectAtIndex:0];
                     }
                 }else{
                     self.backgroundColor = UIColor.yellowColor;
+                    if (self.reloadCell) {
+                        self.reloadCell();
+                    }
                 }
                 [self reloadData];
             }];
@@ -114,20 +120,20 @@
 @end
 
 
-@interface TTSubscibeAuthorCollectionCell ()
+@interface TTSubscribeAuthorCollectionCell ()
 
 @property (nonatomic, strong) UIImageView *avatarImg;
 @property (nonatomic, strong) UILabel *nameLab;
 @property (nonatomic, strong) UILabel *descLab;
-@property (nonatomic, strong) UIButton *subscibeBtn;
+@property (nonatomic, strong) UIButton *subscribeBtn;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) void (^animationStopBlock)(NSIndexPath *);
 
 @end
 
-@implementation TTSubscibeAuthorCollectionCell
+@implementation TTSubscribeAuthorCollectionCell
 
--(void)setModel:(TTSbuscribeAuthorModel *)model
+-(void)setModel:(TTSubscribeAuthorModel *)model
 {
     _model = model;
     [_avatarImg sd_setImageWithURL:[NSURL URLWithString:model.authorHeadImage] placeholderImage:[UIImage imageNamed:@"custom_avatar_subscribe"]];
@@ -159,7 +165,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = 4;
         [self setupUI];
-        [_subscibeBtn addTarget:self action:@selector(subScribeBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
+        [_subscribeBtn addTarget:self action:@selector(subScribeBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return self;
 }
@@ -167,7 +173,7 @@
 #pragma mark 懒加载控件
 -(UIImageView *)avatarImg {
     if (!_avatarImg) {
-        _avatarImg = [[UIImageView alloc] initWithImageCircle:[UIImage imageNamed:@"custom_avatar_subscribe"]];
+        _avatarImg = [[UIImageView alloc] initWithImageCircle:[UIImage imageNamed:@"custom_avatar_subscribe"] cornerRadius:54/2];
     }
     return _avatarImg;
 }
@@ -186,17 +192,17 @@
     return _descLab;
 }
 
--(UIButton *)subscibeBtn {
-    if (!_subscibeBtn) {
-        _subscibeBtn = [[UIButton alloc] initWithText:nil backImage:[UIImage imageNamed:@"custom_subscribe_add"]];
+-(UIButton *)subscribeBtn {
+    if (!_subscribeBtn) {
+        _subscribeBtn = [[UIButton alloc] initWithText:nil backImage:[UIImage imageNamed:@"custom_subscribe_add"]];
     }
-    return _subscibeBtn;
+    return _subscribeBtn;
 }
 -(void)setupUI {
     [self.contentView addSubview:self.avatarImg];
     [self.contentView addSubview:self.nameLab];
     [self.contentView addSubview:self.descLab];
-    [self.contentView addSubview:self.subscibeBtn];
+    [self.contentView addSubview:self.subscribeBtn];
     
     [_avatarImg makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(12);
@@ -215,19 +221,19 @@
         make.centerX.equalTo(self);
     }];
     
-    [_subscibeBtn makeConstraints:^(MASConstraintMaker *make) {
+    [_subscribeBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.descLab.bottom).offset(10);
         make.centerX.equalTo(self);
     }];
 }
 @end
 
-@interface TTSubscibeAuthorMoreCell ()
+@interface TTSubscribeAuthorMoreCell ()
 
 @property (nonatomic, strong) UILabel *moreLab;
 @end
 
-@implementation TTSubscibeAuthorMoreCell
+@implementation TTSubscribeAuthorMoreCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -264,7 +270,6 @@
 }
 
 @end
-
 
 
 

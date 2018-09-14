@@ -24,8 +24,7 @@
 		D398B1192148DBA400C0653F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B10E2148DBA400C0653F /* MASConstraint.m */; };
 		D398B11A2148DBA400C0653F /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1102148DBA400C0653F /* MASViewConstraint.m */; };
 		D398B11B2148DBA400C0653F /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1112148DBA400C0653F /* MASViewAttribute.m */; };
-		D398B11F2148DD3A00C0653F /* TTSubscibeAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B11E2148DD3A00C0653F /* TTSubscibeAuthorCell.m */; };
-		D398B1222148DDFA00C0653F /* TTSubscibeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1212148DDFA00C0653F /* TTSubscibeNewsCell.m */; };
+		D398B11F2148DD3A00C0653F /* TTSubscribeAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B11E2148DD3A00C0653F /* TTSubscribeAuthorCell.m */; };
 		D398B1252148DE3800C0653F /* TTConcernTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1242148DE3800C0653F /* TTConcernTopView.m */; };
 		D398B1282148DE7300C0653F /* TTSetCusomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1272148DE7300C0653F /* TTSetCusomView.m */; };
 		D398B14F2148E09700C0653F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D398B12A2148E09700C0653F /* LICENSE */; };
@@ -94,11 +93,11 @@
 		D398B2F6214920C100C0653F /* UIImageView+InitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */; };
 		D398B2F92149247900C0653F /* custom_avatar_subscribe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D398B2F72149247800C0653F /* custom_avatar_subscribe@3x.png */; };
 		D398B2FA2149247900C0653F /* custom_avatar_subscribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D398B2F82149247800C0653F /* custom_avatar_subscribe@2x.png */; };
-		D3A5BA79214A04B9000B4394 /* TTSubscibeAuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */; };
+		D3A5BA79214A04B9000B4394 /* TTSubscribeAuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BA78214A04B9000B4394 /* TTSubscribeAuthorView.m */; };
 		D3A5BA7C214A3087000B4394 /* YTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BA7B214A3086000B4394 /* YTAnimation.m */; };
 		D3A5BB9D214A4B5D000B4394 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BB9B214A4B5B000B4394 /* HttpTool.m */; };
-		D3A5BBA0214A4C35000B4394 /* TTSbuscribeAuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BB9F214A4C35000B4394 /* TTSbuscribeAuthorModel.m */; };
-		D3A5BBA3214A4C96000B4394 /* TTSbuscribeAuthorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBA2214A4C96000B4394 /* TTSbuscribeAuthorViewModel.m */; };
+		D3A5BBA0214A4C35000B4394 /* TTSubscribeAuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BB9F214A4C35000B4394 /* TTSubscribeAuthorModel.m */; };
+		D3A5BBA3214A4C96000B4394 /* TTSubscribeAuthorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBA2214A4C96000B4394 /* TTSubscribeAuthorViewModel.m */; };
 		D3A5BBCA214A55C1000B4394 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBA5214A55C1000B4394 /* UIImage+WebP.m */; };
 		D3A5BBCB214A55C1000B4394 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBA6214A55C1000B4394 /* MKAnnotationView+WebCache.m */; };
 		D3A5BBCC214A55C1000B4394 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBA9214A55C1000B4394 /* SDWebImageManager.m */; };
@@ -120,6 +119,8 @@
 		D3B5F49B214B57F900F4223A /* TTConcernTeamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F49A214B57F900F4223A /* TTConcernTeamViewModel.m */; };
 		D3B5F49E214B588B00F4223A /* TTConcernTeamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F49D214B588B00F4223A /* TTConcernTeamModel.m */; };
 		D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */; };
+		D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */; };
+		D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,10 +161,8 @@
 		D398B10F2148DBA400C0653F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		D398B1102148DBA400C0653F /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		D398B1112148DBA400C0653F /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		D398B11D2148DD3A00C0653F /* TTSubscibeAuthorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscibeAuthorCell.h; sourceTree = "<group>"; };
-		D398B11E2148DD3A00C0653F /* TTSubscibeAuthorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscibeAuthorCell.m; sourceTree = "<group>"; };
-		D398B1202148DDFA00C0653F /* TTSubscibeNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscibeNewsCell.h; sourceTree = "<group>"; };
-		D398B1212148DDFA00C0653F /* TTSubscibeNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscibeNewsCell.m; sourceTree = "<group>"; };
+		D398B11D2148DD3A00C0653F /* TTSubscribeAuthorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeAuthorCell.h; sourceTree = "<group>"; };
+		D398B11E2148DD3A00C0653F /* TTSubscribeAuthorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeAuthorCell.m; sourceTree = "<group>"; };
 		D398B1232148DE3800C0653F /* TTConcernTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConcernTopView.h; sourceTree = "<group>"; };
 		D398B1242148DE3800C0653F /* TTConcernTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTConcernTopView.m; sourceTree = "<group>"; };
 		D398B1262148DE7300C0653F /* TTSetCusomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSetCusomView.h; sourceTree = "<group>"; };
@@ -270,16 +269,16 @@
 		D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+InitExtension.m"; sourceTree = "<group>"; };
 		D398B2F72149247800C0653F /* custom_avatar_subscribe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_avatar_subscribe@3x.png"; sourceTree = "<group>"; };
 		D398B2F82149247800C0653F /* custom_avatar_subscribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_avatar_subscribe@2x.png"; sourceTree = "<group>"; };
-		D3A5BA77214A04B9000B4394 /* TTSubscibeAuthorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscibeAuthorView.h; sourceTree = "<group>"; };
-		D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscibeAuthorView.m; sourceTree = "<group>"; };
+		D3A5BA77214A04B9000B4394 /* TTSubscribeAuthorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeAuthorView.h; sourceTree = "<group>"; };
+		D3A5BA78214A04B9000B4394 /* TTSubscribeAuthorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeAuthorView.m; sourceTree = "<group>"; };
 		D3A5BA7A214A3086000B4394 /* YTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAnimation.h; sourceTree = "<group>"; };
 		D3A5BA7B214A3086000B4394 /* YTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAnimation.m; sourceTree = "<group>"; };
 		D3A5BB9B214A4B5B000B4394 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		D3A5BB9C214A4B5C000B4394 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
-		D3A5BB9E214A4C35000B4394 /* TTSbuscribeAuthorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSbuscribeAuthorModel.h; sourceTree = "<group>"; };
-		D3A5BB9F214A4C35000B4394 /* TTSbuscribeAuthorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSbuscribeAuthorModel.m; sourceTree = "<group>"; };
-		D3A5BBA1214A4C96000B4394 /* TTSbuscribeAuthorViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSbuscribeAuthorViewModel.h; sourceTree = "<group>"; };
-		D3A5BBA2214A4C96000B4394 /* TTSbuscribeAuthorViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSbuscribeAuthorViewModel.m; sourceTree = "<group>"; };
+		D3A5BB9E214A4C35000B4394 /* TTSubscribeAuthorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeAuthorModel.h; sourceTree = "<group>"; };
+		D3A5BB9F214A4C35000B4394 /* TTSubscribeAuthorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeAuthorModel.m; sourceTree = "<group>"; };
+		D3A5BBA1214A4C96000B4394 /* TTSubscribeAuthorViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeAuthorViewModel.h; sourceTree = "<group>"; };
+		D3A5BBA2214A4C96000B4394 /* TTSubscribeAuthorViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeAuthorViewModel.m; sourceTree = "<group>"; };
 		D3A5BBA5214A55C1000B4394 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		D3A5BBA6214A55C1000B4394 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		D3A5BBA7214A55C1000B4394 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
@@ -323,6 +322,10 @@
 		D3B5F49D214B588B00F4223A /* TTConcernTeamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamModel.m; sourceTree = "<group>"; };
 		D3B5F49F214B683E00F4223A /* UIView+InitExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+InitExtension.h"; sourceTree = "<group>"; };
 		D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+InitExtension.m"; sourceTree = "<group>"; };
+		D3B5F4A8214BBC7500F4223A /* TTSubscribeNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSubscribeNewsCell.h; sourceTree = "<group>"; };
+		D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeNewsCell.m; sourceTree = "<group>"; };
+		D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeNewsView.m; sourceTree = "<group>"; };
+		D3B5F4AC214BBD0A00F4223A /* TTSubscribeNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSubscribeNewsView.h; sourceTree = "<group>"; };
 		DA3F2A63ACEF23FCA903CD26 /* Pods_MyCustom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCustom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AADB80FE8B90A68F8546CC /* Pods-MyCustom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCustom.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCustom/Pods-MyCustom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,8 +411,8 @@
 		D398B0F32148DAE000C0653F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D3A5BBA1214A4C96000B4394 /* TTSbuscribeAuthorViewModel.h */,
-				D3A5BBA2214A4C96000B4394 /* TTSbuscribeAuthorViewModel.m */,
+				D3A5BBA1214A4C96000B4394 /* TTSubscribeAuthorViewModel.h */,
+				D3A5BBA2214A4C96000B4394 /* TTSubscribeAuthorViewModel.m */,
 				D3B5F499214B57F900F4223A /* TTConcernTeamViewModel.h */,
 				D3B5F49A214B57F900F4223A /* TTConcernTeamViewModel.m */,
 			);
@@ -419,8 +422,8 @@
 		D398B0F52148DAE000C0653F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3A5BB9E214A4C35000B4394 /* TTSbuscribeAuthorModel.h */,
-				D3A5BB9F214A4C35000B4394 /* TTSbuscribeAuthorModel.m */,
+				D3A5BB9E214A4C35000B4394 /* TTSubscribeAuthorModel.h */,
+				D3A5BB9F214A4C35000B4394 /* TTSubscribeAuthorModel.m */,
 				D3B5F49C214B588B00F4223A /* TTConcernTeamModel.h */,
 				D3B5F49D214B588B00F4223A /* TTConcernTeamModel.m */,
 			);
@@ -432,12 +435,14 @@
 			children = (
 				D398B1262148DE7300C0653F /* TTSetCusomView.h */,
 				D398B1272148DE7300C0653F /* TTSetCusomView.m */,
-				D398B11D2148DD3A00C0653F /* TTSubscibeAuthorCell.h */,
-				D398B11E2148DD3A00C0653F /* TTSubscibeAuthorCell.m */,
-				D3A5BA77214A04B9000B4394 /* TTSubscibeAuthorView.h */,
-				D3A5BA78214A04B9000B4394 /* TTSubscibeAuthorView.m */,
-				D398B1202148DDFA00C0653F /* TTSubscibeNewsCell.h */,
-				D398B1212148DDFA00C0653F /* TTSubscibeNewsCell.m */,
+				D398B11D2148DD3A00C0653F /* TTSubscribeAuthorCell.h */,
+				D398B11E2148DD3A00C0653F /* TTSubscribeAuthorCell.m */,
+				D3A5BA77214A04B9000B4394 /* TTSubscribeAuthorView.h */,
+				D3A5BA78214A04B9000B4394 /* TTSubscribeAuthorView.m */,
+				D3B5F4A8214BBC7500F4223A /* TTSubscribeNewsCell.h */,
+				D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */,
+				D3B5F4AC214BBD0A00F4223A /* TTSubscribeNewsView.h */,
+				D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */,
 				D398B1232148DE3800C0653F /* TTConcernTopView.h */,
 				D398B1242148DE3800C0653F /* TTConcernTopView.m */,
 				D398B2A12148E48B00C0653F /* TTNoConcernCell.h */,
@@ -853,17 +858,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */,
 				D398B2962148E0C100C0653F /* MJMember.m in Sources */,
 				D3A5BBCC214A55C1000B4394 /* SDWebImageManager.m in Sources */,
 				D3A5BBDA214A55C2000B4394 /* SDWebImageManager+MJ.m in Sources */,
 				D3A5BBCA214A55C1000B4394 /* UIImage+WebP.m in Sources */,
 				D398B15D2148E09700C0653F /* AFURLRequestSerialization.m in Sources */,
 				D3A5BB9D214A4B5D000B4394 /* HttpTool.m in Sources */,
-				D3A5BBA3214A4C96000B4394 /* TTSbuscribeAuthorViewModel.m in Sources */,
+				D3A5BBA3214A4C96000B4394 /* TTSubscribeAuthorViewModel.m in Sources */,
 				D398B1512148E09700C0653F /* UIProgressView+AFNetworking.m in Sources */,
 				D3A5BBD9214A55C2000B4394 /* UIView+WebCacheOperation.m in Sources */,
 				D398B11A2148DBA400C0653F /* MASViewConstraint.m in Sources */,
-				D3A5BBA0214A4C35000B4394 /* TTSbuscribeAuthorModel.m in Sources */,
+				D3A5BBA0214A4C35000B4394 /* TTSubscribeAuthorModel.m in Sources */,
 				D398B1592148E09700C0653F /* AFImageDownloader.m in Sources */,
 				D3A5BBD6214A55C1000B4394 /* NSData+ImageContentType.m in Sources */,
 				D398B1522148E09700C0653F /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -886,7 +892,6 @@
 				D3B5F49B214B57F900F4223A /* TTConcernTeamViewModel.m in Sources */,
 				D398B0F72148DAE100C0653F /* TTCustomViewController.m in Sources */,
 				D3A5BBCB214A55C1000B4394 /* MKAnnotationView+WebCache.m in Sources */,
-				D398B1222148DDFA00C0653F /* TTSubscibeNewsCell.m in Sources */,
 				D398B29F2148E0C200C0653F /* MJFoundation.m in Sources */,
 				D398B1542148E09700C0653F /* UIImageView+AFNetworking.m in Sources */,
 				D398B1172148DBA400C0653F /* NSArray+MASAdditions.m in Sources */,
@@ -896,7 +901,7 @@
 				D3A5BBCD214A55C1000B4394 /* SDWebImageDecoder.m in Sources */,
 				D398B2982148E0C100C0653F /* MJIvar.m in Sources */,
 				D3A5BBD3214A55C1000B4394 /* SDWebImagePrefetcher.m in Sources */,
-				D398B11F2148DD3A00C0653F /* TTSubscibeAuthorCell.m in Sources */,
+				D398B11F2148DD3A00C0653F /* TTSubscribeAuthorCell.m in Sources */,
 				D398B1252148DE3800C0653F /* TTConcernTopView.m in Sources */,
 				D398B2992148E0C100C0653F /* MJType.m in Sources */,
 				D398B1132148DBA400C0653F /* ViewController+MASAdditions.m in Sources */,
@@ -920,11 +925,12 @@
 				D3A5BBD4214A55C1000B4394 /* SDImageCache.m in Sources */,
 				D398B15A2148E09700C0653F /* AFURLResponseSerialization.m in Sources */,
 				D398B29E2148E0C200C0653F /* MJArgument.m in Sources */,
-				D3A5BA79214A04B9000B4394 /* TTSubscibeAuthorView.m in Sources */,
+				D3A5BA79214A04B9000B4394 /* TTSubscribeAuthorView.m in Sources */,
 				D398B29B2148E0C100C0653F /* MJTypeEncoding.m in Sources */,
 				D398B29C2148E0C200C0653F /* NSObject+MJCoding.m in Sources */,
 				D3A5BBD8214A55C2000B4394 /* UIImageView+FadeInFadeOut.m in Sources */,
 				D3A5BBD2214A55C1000B4394 /* SDWebImageCompat.m in Sources */,
+				D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */,
 				D398B15F2148E09700C0653F /* AFSecurityPolicy.m in Sources */,
 				D398B0DD2148DACB00C0653F /* AppDelegate.m in Sources */,
 			);

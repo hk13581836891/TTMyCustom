@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTSubscibeNewsCell : UITableViewCell
+@interface TTSubscribeNewsCell : UITableViewCell
 
 @end

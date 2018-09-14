@@ -6,8 +6,8 @@
 //  Copyright © 2018年 houke. All rights reserved.
 //
 
-#import "TTSbuscribeAuthorModel.h"
+#import "TTSubscribeAuthorModel.h"
 
-@implementation TTSbuscribeAuthorModel
+@implementation TTSubscribeAuthorModel
 
 @end

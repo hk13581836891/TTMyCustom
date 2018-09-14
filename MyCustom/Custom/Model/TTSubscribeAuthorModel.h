@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TTSbuscribeAuthorModel : NSObject
+@interface TTSubscribeAuthorModel : NSObject
 /*
 authorName: "叶慧",
 authorHeadImage: "https://resourcedev.ttplus.cn/editor/headphoto/441a0302-4cb4-4427-a414-b779997ff7d6.jpg",

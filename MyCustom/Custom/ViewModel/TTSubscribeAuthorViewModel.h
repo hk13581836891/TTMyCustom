@@ -1,5 +1,5 @@
 //
-//  TTSbuscribeAuthorViewModel.h
+//  TTSubscribeAuthorViewModel.h
 //  MyCustom
 //
 //  Created by houke on 2018/9/13.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTSbuscribeAuthorModel.h"
+#import "TTSubscribeAuthorModel.h"
 
-@interface TTSbuscribeAuthorViewModel : NSObject
+@interface TTSubscribeAuthorViewModel : NSObject
 @property (nonatomic, strong) NSMutableArray *authorArr;
 -(void) getRecommendAutorList:(void (^)(BOOL))finish;
 @end

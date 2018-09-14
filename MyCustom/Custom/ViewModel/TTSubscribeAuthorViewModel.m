@@ -1,19 +1,19 @@
 //
-//  TTSbuscribeAuthorViewModel.m
+//  TTSubscribeAuthorViewModel.m
 //  MyCustom
 //
 //  Created by houke on 2018/9/13.
 //  Copyright © 2018年 houke. All rights reserved.
 //
 
-#import "TTSbuscribeAuthorViewModel.h"
+#import "TTSubscribeAuthorViewModel.h"
 #import "MJExtension.h"
 
-@interface TTSbuscribeAuthorViewModel ()
+@interface TTSubscribeAuthorViewModel ()
 
 @end
 
-@implementation TTSbuscribeAuthorViewModel
+@implementation TTSubscribeAuthorViewModel
 -(NSMutableArray *)authorArr
 {
     if (!_authorArr) {
@@ -28,10 +28,10 @@
         
         if ([[responseObject objectForKey:@"type"] isEqual:@"success"]) {
             
-            NSArray *array = [TTSbuscribeAuthorModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]];
+            NSArray *array = [TTSubscribeAuthorModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]];
             [self.authorArr addObjectsFromArray:array];
             
-            self.authorArr = [NSMutableArray arrayWithArray:[self.authorArr subarrayWithRange:NSMakeRange(0, 10)]];
+            self.authorArr = [NSMutableArray arrayWithArray:[self.authorArr subarrayWithRange:NSMakeRange(0, 5)]];
             finish(YES);
         }else{
             finish(NO);

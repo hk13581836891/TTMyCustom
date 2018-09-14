@@ -1,29 +1,23 @@
 //
-//  TTSubscibeAuthorCell.m
+//  TTSubscibeNewsCell.m
 //  MyCustom
 //
 //  Created by houke on 2018/9/12.
 //  Copyright © 2018年 houke. All rights reserved.
 //
 
-#import "TTSubscibeAuthorCell.h"
-#import "TTSubscibeAuthorView.h"
-#import "TTSbuscribeAuthorViewModel.h"
+#import "TTSubscribeNewsCell.h"
+#import "TTSubscribeNewsView.h"
 
-@interface TTSubscibeAuthorCell ()
+@interface TTSubscribeNewsCell ()
 
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UIButton *moreBtn;
-@property (nonatomic, strong) TTSubscibeAuthorView *subscibeView;
+@property (nonatomic, strong) TTSubscribeNewsView *subNewsView;
 
 @end
 
-@implementation TTSubscibeAuthorCell
-
--(void)setVm:(TTSbuscribeAuthorViewModel *)vm {
-    _vm = vm;
-    _subscibeView.vm = vm;
-}
+@implementation TTSubscribeNewsCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -40,7 +34,7 @@
 
 -(UILabel *)titleLab {
     if (!_titleLab) {
-        _titleLab = [[UILabel alloc] initWithText:@"推荐大咖" textColor:HEXCOLOR(0x222222) font:PingFangSC_Medium(14)];
+        _titleLab = [[UILabel alloc] initWithText:@"我的订阅" textColor:HEXCOLOR(0x222222) font:PingFangSC_Medium(14)];
     }
     return _titleLab;
 }
@@ -53,18 +47,18 @@
     return _moreBtn;
 }
 
--(TTSubscibeAuthorView *)subscibeView{
-    if (!_subscibeView) {
-        _subscibeView = [TTSubscibeAuthorView new];
+-(TTSubscribeNewsView *)subNewsView{
+    if (!_subNewsView) {
+        _subNewsView = [TTSubscribeNewsView new];
     }
-    return _subscibeView;
+    return _subNewsView;
 }
 
 -(void)setupUI{
     
     [self.contentView addSubview:self.titleLab];
     [self.contentView addSubview:self.moreBtn];
-    [self.contentView addSubview:self.subscibeView];
+    [self.contentView addSubview:self.subNewsView];
     
     [_titleLab makeConstraints:^(MASConstraintMaker *make) {
         
@@ -78,33 +72,9 @@
         make.right.equalTo(self.contentView).offset(-TTMargin);
     }];
     
-    [_subscibeView makeConstraints:^(MASConstraintMaker *make) {
+    [_subNewsView makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(42, TTMargin, 10 , 0));
     }];
 }
+
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
