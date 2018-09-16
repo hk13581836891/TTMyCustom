@@ -22,4 +22,24 @@
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, strong) NSNumber *status;
 
+@property (nonatomic, copy) NSString *code;
+@property (nonatomic, copy) NSString *desc;
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

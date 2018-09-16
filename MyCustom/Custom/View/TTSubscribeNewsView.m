@@ -109,7 +109,8 @@
 }
 -(UILabel *)contentLab{
     if (!_contentLab) {
-        _contentLab = [[UILabel alloc] initWithText:@"新闻标题" textColor:HEXCOLOR(0x222222) font:PingFangSC_Regular(13)];
+        _contentLab = [[UILabel alloc] initWithText:@"新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题题题新闻标题新闻标测试" textColor:HEXCOLOR(0x222222) font:PingFangSC_Regular(13) screenInset:9 width:240];
+        _contentLab.numberOfLines = 2;
     }
     return _contentLab;
 }
@@ -144,6 +145,10 @@
     }];
     [_whitBack makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(UIEdgeInsetsMake(36, 0, 0, 0));
+    }];
+    [_contentLab makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.whitBack);
+        make.width.equalTo(222);
     }];
 }
 @end

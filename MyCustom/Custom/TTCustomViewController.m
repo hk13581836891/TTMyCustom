@@ -43,13 +43,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.subscribeFlag = 1;
+    [self prepareTableView];
+    [self reloadData];
+}
+-(void)prepareTableView{
     
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
     [self.tableView registerClass:[TTSubscribeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeNewsCell class])];
     [self.tableView registerClass:[TTSubscribeAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCell class])];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
-    
+}
+-(void)reloadData{
     [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
         if (isSuccess) {
             [self.tableView reloadData];
@@ -60,9 +67,12 @@
             [self.tableView reloadData];
         }
     }];
-    
+    [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
+        if (isSuccess) {
+            [self.tableView reloadData];
+        }
+    }];
 }
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -72,7 +82,10 @@
     if (section == 0) {
         return 1;
     }
-    return 20;
+    if (_conTeamVM.concernTeamArr.count == 0) {
+        return 20;
+    }
+    return 1;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -83,7 +96,10 @@
         }
         return 215;
     }
-    return 60;
+    if (_conTeamVM.concernTeamArr.count == 0) {
+        return 66;
+    }
+    return tableView.estimatedRowHeight;
 }
 -(UIView * )tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
@@ -118,11 +134,14 @@
             TTSubscribeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscribeNewsCell class]) forIndexPath:indexPath];
             return cell;
         }
-        
-        
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor yellowColor];
+    if (_conTeamVM.concernTeamArr.count == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor yellowColor];
+        return cell;
+    }
+    TTNoConcernCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTNoConcernCell class]) forIndexPath:indexPath];
+
     return cell;
 }
 

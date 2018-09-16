@@ -11,7 +11,14 @@
 
 @implementation UIButton (InitExtension)
 
--(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image{
+-(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image highlightedImage:(UIImage *) highlightedImage{
+    UIButton *btn = [self initWithText:text backImage:image];
+    [btn setBackgroundImage:highlightedImage forState:(UIControlStateHighlighted)];
+    
+    [btn sizeToFit];
+    return btn;
+}
+-(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image {
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     [btn setTitle:text forState:(UIControlStateNormal)];
     [btn setBackgroundImage:image forState:(UIControlStateNormal)];

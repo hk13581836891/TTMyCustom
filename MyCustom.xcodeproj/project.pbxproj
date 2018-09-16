@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8BFACF0DEF953E56C1EBBE78 /* Pods_MyCustom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3F2A63ACEF23FCA903CD26 /* Pods_MyCustom.framework */; };
+		D35B8254214CEC1000D6ECD2 /* TTNoConcernView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */; };
 		D398B0DD2148DACB00C0653F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DC2148DACB00C0653F /* AppDelegate.m */; };
 		D398B0E02148DACB00C0653F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DF2148DACB00C0653F /* ViewController.m */; };
 		D398B0E52148DACE00C0653F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D398B0E42148DACE00C0653F /* Assets.xcassets */; };
@@ -125,6 +126,8 @@
 
 /* Begin PBXFileReference section */
 		4413011BA4398E352BD156EE /* Pods-MyCustom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCustom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCustom/Pods-MyCustom.debug.xcconfig"; sourceTree = "<group>"; };
+		D35B8252214CEC1000D6ECD2 /* TTNoConcernView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNoConcernView.h; sourceTree = "<group>"; };
+		D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNoConcernView.m; sourceTree = "<group>"; };
 		D398B0D82148DACB00C0653F /* MyCustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D398B0DB2148DACB00C0653F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D398B0DC2148DACB00C0653F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				D398B1242148DE3800C0653F /* TTConcernTopView.m */,
 				D398B2A12148E48B00C0653F /* TTNoConcernCell.h */,
 				D398B2A22148E48B00C0653F /* TTNoConcernCell.m */,
+				D35B8252214CEC1000D6ECD2 /* TTNoConcernView.h */,
+				D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -898,6 +903,7 @@
 				D398B29A2148E0C100C0653F /* MJConst.m in Sources */,
 				D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */,
 				D398B15C2148E09700C0653F /* AFURLSessionManager.m in Sources */,
+				D35B8254214CEC1000D6ECD2 /* TTNoConcernView.m in Sources */,
 				D3A5BBCD214A55C1000B4394 /* SDWebImageDecoder.m in Sources */,
 				D398B2982148E0C100C0653F /* MJIvar.m in Sources */,
 				D3A5BBD3214A55C1000B4394 /* SDWebImagePrefetcher.m in Sources */,

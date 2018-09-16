@@ -11,4 +11,5 @@
 @interface UILabel (InitExtension)
 
 -(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font ;
+-(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font screenInset:(CGFloat )screenInset  width:(CGFloat)width;
 @end

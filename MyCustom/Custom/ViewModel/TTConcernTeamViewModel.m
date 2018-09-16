@@ -9,6 +9,12 @@
 #import "TTConcernTeamViewModel.h"
 #import "MJExtension.h"
 
+@interface TTConcernTeamViewModel ()
+
+@property (nonatomic, strong) NSMutableArray *teamTypeArr;
+@property (nonatomic, strong) NSMutableArray *teamArr;
+@end
+
 @implementation TTConcernTeamViewModel
 
 -(NSMutableArray *)concernTeamArr
@@ -19,7 +25,26 @@
     return _concernTeamArr;
 }
 
-//获取已关注球队列表
+-(NSMutableArray *)teamTypeArr
+{
+    if (!_teamTypeArr) {
+        _teamTypeArr = [NSMutableArray array];
+    }
+    return _teamTypeArr;
+}
+-(NSMutableArray *)recommendTeamArr{
+    if (!_recommendTeamArr) {
+        _recommendTeamArr = [NSMutableArray array];
+    }
+    return _recommendTeamArr;
+}
+-(NSMutableArray *)teamArr{
+    if (!_teamArr) {
+        _teamArr = [NSMutableArray array];
+    }
+    return _teamArr;
+}
+#pragma mark 获取已关注球队列表
 -(void)getConcernTeamList:(void(^)(bool))finish
 {
 //    NSString * followList = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_follow_list"];
@@ -40,4 +65,50 @@
         finish(false);
     }];
 }
+#pragma mark 获取球队类型id
+-(void)getTeamTypeList
+{
+//    NSString *rootUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_root"];
+    NSString *url = @"http://apidev.ttplus.cn/custom_news/root";
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+            NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
+            [self.teamTypeArr addObjectsFromArray:tempArr];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+-(void)getRecommendTeamDataList:(void (^)(bool))finsih
+{
+//    NSString *secondaryUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_secondary"];
+//    secondaryUrl = [NSString stringWithFormat:@"%@?pid=%@&userId=%@&pageNumber=1&pageSize=30",secondaryUrl,pid,USERID];
+    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/custom_news/secondary?pid=%@&userId=61&pageNumber=1&pageSize=30",@(0)];
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+            NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
+            [self.teamArr addObjectsFromArray:tempArr];
+            finsih(true);
+        }else{
+            finsih(false);
+        }
+    } failure:^(NSError *error) {
+        finsih(false);
+    }];
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
