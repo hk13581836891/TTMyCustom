@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TTConcernTeamViewModel;
 
 @interface TTNoConcernCell : UITableViewCell
 
+@property (nonatomic, strong) TTConcernTeamViewModel *vm;
 
 @end

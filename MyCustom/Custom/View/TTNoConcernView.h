@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TTConcernTeamViewModel;
 
 @interface TTNoConcernView : UICollectionView
-
+@property (nonatomic, strong) TTConcernTeamViewModel *vm;
 @end
 
 #define itemW (UIScreen.mainScreen.bounds.size.width - 20 *2 - 26 *3)/4
-#define itemH itemW + 6+ 16
+#define itemH (itemW + 6+ 16)
 
+@class TTConcernTeamModel;
 @interface TTNoConcernCollectionCell : UICollectionViewCell
+@property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) TTConcernTeamModel *model;
+@end
+
+@interface TTNoConcernMoreCell : UICollectionViewCell
 
 @end

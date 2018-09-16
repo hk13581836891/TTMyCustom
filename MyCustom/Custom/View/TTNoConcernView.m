@@ -7,12 +7,16 @@
 //
 
 #import "TTNoConcernView.h"
+#import "TTConcernTeamViewModel.h"
 
 @interface TTNoConcernView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 @implementation TTNoConcernView
 
+-(void)setVm:(TTConcernTeamViewModel *)vm{
+    _vm = vm;
+}
 - (instancetype)init
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -20,7 +24,7 @@
     layout.minimumLineSpacing = 16;
     layout.itemSize = CGSizeMake(itemW, itemH);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.sectionInset =UIEdgeInsetsMake(TTMargin, 20, TTMargin, 20);
+    layout.sectionInset =UIEdgeInsetsMake(0, 20, 0, 20);
     
     self = [super initWithFrame:CGRectZero collectionViewLayout:layout];
     if (self) {
@@ -31,33 +35,48 @@
         self.scrollEnabled = NO;
         
         [self registerClass:[TTNoConcernCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TTNoConcernCollectionCell class])];
-        
+        [self registerClass:[TTNoConcernMoreCell class] forCellWithReuseIdentifier:NSStringFromClass([TTNoConcernMoreCell class])];
     }
     return self;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 16;
+    return 12;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 11) {
+        TTNoConcernMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTNoConcernMoreCell class]) forIndexPath:indexPath];
+        return cell;
+    }
     TTNoConcernCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTNoConcernCollectionCell class]) forIndexPath:indexPath];
-    
+    cell.model = _vm.recommendTeamArr[indexPath.item];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.item == 11) {
+       
+    }
+    TTNoConcernCollectionCell *cell = (TTNoConcernCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backView.backgroundColor = HEXCOLOR(0xffe7e7);
+    cell.backView.layer.borderColor = HEXCOLOR(0xff2323).CGColor;
 }
 @end
 
+#import "UIImageView+WebCache.h"
 @interface TTNoConcernCollectionCell ()
-@property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UIImageView *teamImg;
 @property (nonatomic, strong) UILabel *nameLab;
 
 @end
 @implementation TTNoConcernCollectionCell
+
+-(void)setModel:(TTConcernTeamModel *)model{
+    _model = model;
+    [_teamImg sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@""]];
+    _nameLab.text = model.name;
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -91,7 +110,7 @@
     [self.contentView addSubview:self.nameLab];
     
     [_backView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(1);
         make.left.equalTo(self.contentView);
         make.width.equalTo(self.frame.size.width);
         make.height.equalTo(self.frame.size.width);
@@ -99,8 +118,8 @@
     
     [_teamImg makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.backView);
-        make.width.equalTo(self.backView).multipliedBy(0.75);
-        make.height.equalTo(self.backView).multipliedBy(0.75);
+        make.width.equalTo(self.backView).multipliedBy(0.6);
+        make.height.equalTo(self.backView).multipliedBy(0.6);
     }];
     [_nameLab makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.backView.bottom).offset(6);
@@ -109,6 +128,50 @@
 }
 @end
 
+@interface TTNoConcernMoreCell ()
+@property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) UIImageView *moreImg;
+@end
+@implementation TTNoConcernMoreCell
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
+}
+#pragma mark 懒加载创建控件
+-(UIView *)backView{
+    if (!_backView) {
+        _backView = [[UIView alloc] initWithBackColor:HEXCOLOR(0xf6f6f6) borderColor:HEXCOLOR(0xe6e6e6) borderWidth:0.5 cornerRadius: (self.frame.size.width / 2)];
+    }
+    return _backView;
+}
+-(UIImageView *)moreImg{
+    if (!_moreImg) {
+        _moreImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more_team_big"]];
+    }
+    return _moreImg;
+}
+
+-(void)setupUI{
+    [self.contentView addSubview:self.backView];
+    [self.contentView addSubview:self.moreImg];
+
+    [_backView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView);
+        make.left.equalTo(self.contentView);
+        make.width.equalTo(self.frame.size.width);
+        make.height.equalTo(self.frame.size.width);
+    }];
+    
+    [_moreImg makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.backView);
+    }];
+}
+@end
 
 
 

@@ -8,6 +8,7 @@
 
 #import "TTNoConcernCell.h"
 #import "TTNoConcernView.h"
+#import "TTConcernTeamViewModel.h"
 
 //#define itemW (UIScreen.mainScreen.bounds.size.width - 20 *2 - 26 *3)/4
 //#define itemH itemW + 6+ 16
@@ -19,6 +20,10 @@
 @end
 
 @implementation TTNoConcernCell
+-(void)setVm:(TTConcernTeamViewModel *)vm{
+    _vm = vm;
+    _teamView.vm = vm;
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -69,7 +74,9 @@
         make.top.equalTo(self.finishBtn.bottom).offset(TTMargin);
         make.left.equalTo(self.contentView);
         make.right.equalTo(self.contentView);
-        make.height.equalTo(54 + itemH * 4 + 16 * 3 +500);
+        make.height.equalTo(itemH * 3 + 16 * 2 + TTMargin);
+        
+        make.bottom.equalTo(self.contentView);
     }];
 }
 

@@ -67,7 +67,7 @@
             [self.tableView reloadData];
         }
     }];
-    [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
+    [self.conTeamVM getRecommendTeamDataList:^(bool isSuccess) {
         if (isSuccess) {
             [self.tableView reloadData];
         }
@@ -137,11 +137,11 @@
     }
     if (_conTeamVM.concernTeamArr.count == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor yellowColor];
+    
         return cell;
     }
     TTNoConcernCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTNoConcernCell class]) forIndexPath:indexPath];
-
+    cell.vm = _conTeamVM;
     return cell;
 }
 
