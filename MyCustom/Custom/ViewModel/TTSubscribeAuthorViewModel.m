@@ -89,7 +89,9 @@
     NSString *url = @"https://apidev.ttplus.cn/editor_category/list";
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject valueForKey:@"type"] isEqual:@"success"]) {
-            [self.authorTypeArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]]];
+//            [self.authorTypeArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]]];
+            NSArray *arr = @[@{@"name":@"中国足球"}, @{@"name":@"篮球"}, @{@"name":@"NBA"}, @{@"name":@"广州恒大淘宝"}, @{@"name":@"国际足球男"}, @{@"name":@"其他"}];
+             [self.authorTypeArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:arr]];
             finish(true);
         }else{
             finish(false);

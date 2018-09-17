@@ -41,7 +41,7 @@
 }
 -(TTSubscribeTypeView *)typeView{
     if (!_typeView) {
-        _typeView = [TTSubscribeTypeView new]; _typeView.backgroundColor = UIColor.purpleColor;
+        _typeView = [TTSubscribeTypeView new];
     }
     return _typeView;
 }
@@ -49,7 +49,6 @@
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(UITableViewStylePlain)];
-        _tableView.backgroundColor = UIColor.yellowColor;
     }
     return _tableView;
 }
@@ -62,7 +61,7 @@
         make.top.equalTo(self.nav.bottom);
         make.left.equalTo(self);
         make.right.equalTo(self);
-        make.height.equalTo(45);
+        make.height.equalTo(42);
     }];
     [_tableView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.typeView.bottom);

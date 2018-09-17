@@ -12,6 +12,9 @@
 @property (nonatomic , strong) TTSubscribeAuthorViewModel *vm;
 @end
 
+@class TTAuthorTypeModel;
 @interface TTSubscribeTypeCell : UICollectionViewCell
 
+@property (nonatomic, strong) TTAuthorTypeModel *model;
+@property (nonatomic, strong) UILabel *nameLab;
 @end
