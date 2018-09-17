@@ -8,14 +8,15 @@
 
 #import "TTNoConcernView.h"
 #import "TTConcernTeamViewModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface TTNoConcernView ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
 @end
 @implementation TTNoConcernView
 
 -(void)setVm:(TTConcernTeamViewModel *)vm{
     _vm = vm;
+    [self reloadData];
 }
 - (instancetype)init
 {
@@ -36,12 +37,14 @@
         
         [self registerClass:[TTNoConcernCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TTNoConcernCollectionCell class])];
         [self registerClass:[TTNoConcernMoreCell class] forCellWithReuseIdentifier:NSStringFromClass([TTNoConcernMoreCell class])];
+        
+        self.concernCount = 0;
     }
     return self;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 12;
+    return _vm.recommendTeamArr.count > 0 ? 12 : 0;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -59,8 +62,32 @@
        
     }
     TTNoConcernCollectionCell *cell = (TTNoConcernCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backView.backgroundColor = HEXCOLOR(0xffe7e7);
-    cell.backView.layer.borderColor = HEXCOLOR(0xff2323).CGColor;
+    TTConcernTeamModel *model = _vm.recommendTeamArr[indexPath.item];
+    
+    if ([model.status intValue] == 0) {
+        @weakify(self)
+        [_vm concernCancelTeam:model.ID status:@"YES" finish:^(bool isSuccess) {
+            @strongify(self)
+            if (isSuccess) {
+                model.status = @1;
+                cell.backView.backgroundColor = HEXCOLOR(0xffe7e7);
+                cell.backView.layer.borderColor = HEXCOLOR(0xff2323).CGColor;
+                self.concernCount ++;
+            }
+        }];
+    }else{
+        @weakify(self)
+        [_vm concernCancelTeam:model.ID status:@"NO" finish:^(bool isSuccess) {
+            @strongify(self)
+            if (isSuccess) {
+                model.status = @0;
+                cell.backView.backgroundColor = HEXCOLOR(0xf6f6f6);
+                cell.backView.layer.borderColor = HEXCOLOR(0xE6E6E6).CGColor;
+                self.concernCount --;
+            }
+        }];
+    }
+   
 }
 @end
 

@@ -99,8 +99,22 @@
         
     }];
 }
+
 //关注或取消关注
-//http://apidev.ttplus.cn/custom_news/follow?userId=61&wordId=24&status=NO
+-(void)concernCancelTeam:(NSNumber *)wordId status:(NSString *)status finish:(void (^)(bool))finish{
+    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/custom_news/follow?userId=61&wordId=%@&status=%@",wordId,status];
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+            
+            finish(true);
+        }else{
+            finish(false);
+        }
+    } failure:^(NSError *error) {
+        finish(false);
+    }];
+}
+
 @end
 
 

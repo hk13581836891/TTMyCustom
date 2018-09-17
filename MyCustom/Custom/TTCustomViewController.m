@@ -57,11 +57,27 @@
     [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
 }
 -(void)reloadData{
-    [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
+    //订阅
+    @weakify(self)
+    [self.authorVM getSubscribeList:^(bool isSuccess) {
+        @strongify(self)
         if (isSuccess) {
-            [self.tableView reloadData];
+            [self.authorVM getSubscribeAuthorNewsList:^(bool isSuccess) {
+                if (isSuccess) {
+                    [self.tableView reloadData];
+                }
+            }];
+        }else{
+            [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
+                if (isSuccess) {
+                    [self.tableView reloadData];
+                }
+            }];
         }
     }];
+   
+    
+    //球队定制
     [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
         if (isSuccess) {
             [self.tableView reloadData];
@@ -82,7 +98,7 @@
     if (section == 0) {
         return 1;
     }
-    if (_conTeamVM.concernTeamArr.count == 0) {
+    if (_conTeamVM.concernTeamArr.count > 0) {
         return 20;
     }
     return 1;
@@ -96,23 +112,29 @@
         }
         return 215;
     }
-    if (_conTeamVM.concernTeamArr.count == 0) {
+    if (_conTeamVM.concernTeamArr.count > 0) {
         return 66;
     }
     return tableView.estimatedRowHeight;
 }
 -(UIView * )tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        TTConcernTopView *topView = [TTConcernTopView new];
-        topView.vm = _conTeamVM;
-        return topView;
+        if (_conTeamVM.concernTeamArr.count != 0) {
+            TTConcernTopView *topView = [TTConcernTopView new];
+            topView.vm = _conTeamVM;
+            return topView;
+        }
+        return nil;
     }
     return nil;
 }
 
 -(CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 1) {
-        return 80;
+        if (_conTeamVM.concernTeamArr.count != 0) {
+            return 80;
+        }
+        return 0.00001;
     }
     
     return 0.00001;
@@ -127,7 +149,11 @@
             cell.subscribeView.reloadCell = ^{
                 @strongify(self);
                 self.subscribeFlag = 0;
-                [self.tableView reloadData];
+                [self.authorVM getSubscribeAuthorNewsList:^(bool isSuccess) {
+                    if (isSuccess) {
+                        [self.tableView reloadData];
+                    }
+                }];
             };
             return cell;
         }else{
@@ -135,7 +161,7 @@
             return cell;
         }
     }
-    if (_conTeamVM.concernTeamArr.count == 0) {
+    if (_conTeamVM.concernTeamArr.count > 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     
         return cell;

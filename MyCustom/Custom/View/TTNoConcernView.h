@@ -11,6 +11,7 @@
 
 @interface TTNoConcernView : UICollectionView
 @property (nonatomic, strong) TTConcernTeamViewModel *vm;
+@property (nonatomic, assign) NSInteger concernCount;
 @end
 
 #define itemW (UIScreen.mainScreen.bounds.size.width - 20 *2 - 26 *3)/4

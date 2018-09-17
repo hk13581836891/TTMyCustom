@@ -9,6 +9,7 @@
 #import "TTNoConcernCell.h"
 #import "TTNoConcernView.h"
 #import "TTConcernTeamViewModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 //#define itemW (UIScreen.mainScreen.bounds.size.width - 20 *2 - 26 *3)/4
 //#define itemH itemW + 6+ 16
@@ -53,6 +54,17 @@
 -(TTNoConcernView *)teamView{
     if (!_teamView) {
         _teamView = [TTNoConcernView new];
+        @weakify(self)
+        [[_teamView rac_valuesForKeyPath:@"concernCount" observer:self] subscribeNext:^(id _Nullable x) {
+            @strongify(self)
+            if ([x intValue] == 0) {
+                self.finishBtn.highlighted = NO;
+                [self.finishBtn setBackgroundImage:[UIImage imageNamed:@"custom_unfinish_btn"] forState:(UIControlStateNormal)];
+            }else{
+                self.finishBtn.highlighted = YES;
+                [self.finishBtn setBackgroundImage:[UIImage imageNamed:@"custom_finish_btn"] forState:(UIControlStateNormal)];
+            }
+        }];
     }
     return _teamView;
 }

@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *recommendTeamArr;
 -(void)getConcernTeamList:(void(^)(bool))finish;
 -(void)getRecommendTeamDataList:(void (^)(bool))finsih;
+
+-(void)concernCancelTeam:(NSNumber *)wordId status:(NSString *)status finish:(void (^)(bool))finish;
 @end
