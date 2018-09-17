@@ -77,7 +77,9 @@
     }
     
     TTSubscribeAuthorCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCollectionCell class]) forIndexPath:indexPath];
-    cell.model = _tempArr[indexPath.item];
+    cell.vm = _vm;
+    TTSubscribeAuthorModel *model = _tempArr[indexPath.item];
+    cell.model = model;
     cell.hidden = NO;
     @weakify(self)
     [cell setIndexPath:indexPath animationStopBlock:^(NSIndexPath *indexPath) {
@@ -97,7 +99,6 @@
                         [self.vm.authorArr removeObjectAtIndex:0];
                     }
                 }else{
-                    self.backgroundColor = UIColor.yellowColor;
                     if (self.reloadCell) {
                         self.reloadCell();
                     }
@@ -105,7 +106,9 @@
                 [self reloadData];
             }];
     }];
-    
+    [[cell rac_signalForSelector:@selector(subScribeBtnClick)] subscribeNext:^(RACTuple * _Nullable x) {
+        self.userInteractionEnabled = NO;
+    }];
     return cell;
 }
 
@@ -119,20 +122,22 @@
 
 @end
 
-
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "TTSubscribeAuthorViewModel.h"
 @interface TTSubscribeAuthorCollectionCell ()
 
 @property (nonatomic, strong) UIImageView *avatarImg;
 @property (nonatomic, strong) UILabel *nameLab;
 @property (nonatomic, strong) UILabel *descLab;
-@property (nonatomic, strong) UIButton *subscribeBtn;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) void (^animationStopBlock)(NSIndexPath *);
 
 @end
 
 @implementation TTSubscribeAuthorCollectionCell
-
+-(void)setVm:(TTSubscribeAuthorViewModel *)vm{
+    _vm = vm;
+}
 -(void)setModel:(TTSubscribeAuthorModel *)model
 {
     _model = model;
@@ -148,10 +153,13 @@
     self.animationStopBlock = block;
 }
 -(void)subScribeBtnClick {
-    //1 add
-    
-    //2动画
-    [YTAnimation fadeAnimation:self];
+    //添加订阅
+    @weakify(self)
+    [self.vm addSubscribe:_model.authorId finish:^(bool isSuccess) {
+        @strongify(self)
+        //2动画
+        [YTAnimation fadeAnimation:self];
+    }];
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     if ([anim valueForKey:@"animType"] ){

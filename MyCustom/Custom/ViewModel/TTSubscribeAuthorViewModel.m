@@ -29,21 +29,21 @@
 }
 #pragma mark 我的订阅
 
--(void)getSubscribeList:(void (^)(bool))finish {
+-(void)getSubscribeList:(void (^)(NSInteger))finish {
     NSString *url = @"http://apidev.ttplus.cn/subscribe/editor_page?pageNumber=1&pageSize=10&userId=61";
     [HttpTool httpGet:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
             NSArray *tempArr = [responseObject objectForKey:@"content"];
             if (tempArr.count > 0) {
-                finish(true);
+                finish(tempArr.count);
             }else{
-                finish(false);
+                finish(0);
             }
         }else{
-            finish(false);
+            finish(0);
         }
     } failure:^(NSError *error) {
-        finish(false);
+        finish(0);
     }];
 }
 #pragma mark 推荐大咖
@@ -66,7 +66,7 @@
         finish(NO);
     }];
 }
-
+#pragma mark 订阅作者新闻
 -(void)getSubscribeAuthorNewsList:(void (^)(bool))finish
 {
     NSString *url = @"http://apidev.ttplus.cn/subscribe/user?userid=5x4EhhMRX4s%3D&pagenum=0";
@@ -77,4 +77,33 @@
       finish(false);
     }];
 }
+
+#pragma mark 订阅或取消订阅作者
+-(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish{
+    //    addSubscrStr=[NSString stringWithFormat:@"%@?editorid=%@&userid=%@",[TTInitInterfaceManager getUrlWithKey:Init_app url:@"removesub"],[Tools JiaMiUserId:_cellModel.authorId],[Tools JiaMiUserId]];
+    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/subscribe/add?editorid=%@&userid=%@",[EncryptTool JiaMiUserId:editorid], [EncryptTool JiaMiUserId:@"61"]];
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject valueForKey:@"returncode"]intValue]==1) {
+            finish(true);
+        }else{
+            finish(false);
+        }
+    } failure:^(NSError *error) {
+        finish(false);
+    }];
+}
+-(void)removeSubscribe:(NSString *)editorid finish:(void (^)(bool))finish{
+//    addSubscrStr=[NSString stringWithFormat:@"%@?editorid=%@&userid=%@",[TTInitInterfaceManager getUrlWithKey:Init_app url:@"addsub"],[Tools JiaMiUserId:_cellModel.authorId],[Tools JiaMiUserId]];
+    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/subscribe/remove?editorid=%@&userid=%@",[EncryptTool JiaMiUserId:editorid], [EncryptTool JiaMiUserId:@"61"]];
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject valueForKey:@"returncode"]intValue]==1) {
+            finish(true);
+        }else{
+            finish(false);
+        }
+    } failure:^(NSError *error) {
+        finish(false);
+    }];
+}
+
 @end

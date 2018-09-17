@@ -7,6 +7,7 @@
 //
 
 #import "TTSubscribeNewsView.h"
+#import "TTSubscribeAuthorViewModel.h"
 
 @interface TTSubscribeNewsView ()<UICollectionViewDataSource>
 
@@ -14,6 +15,11 @@
 
 @implementation TTSubscribeNewsView
 
+- (void)setVm:(TTSubscribeAuthorViewModel *)vm
+{
+    _vm = vm;
+    [self reloadData];
+}
 - (instancetype)init
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -38,16 +44,24 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (_vm.subscribeNewsArr.count == 0) {
+        return 0;
+    }
+    if (_vm.subscribeNewsArr.count < 5) {
+        return _vm.subscribeNewsArr.count;
+    }
     return 5;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TTSubscribeNewsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TTSubscribeNewsCollectionCell class]) forIndexPath:indexPath];
-    
+    cell.model = _vm.subscribeNewsArr[indexPath.item];
     return cell;
 }
 @end
 
+#import "UIImageView+WebCache.h"
+#import "TimeTool.h"
 @interface TTSubscribeNewsCollectionCell ()
 
 @property (nonatomic, strong) UIImageView *topImg;
@@ -61,6 +75,13 @@
 
 @implementation TTSubscribeNewsCollectionCell
 
+-(void)setModel:(TTSubscribeAuthorModel *)model{
+    _model = model;
+    [_avatarImg sd_setImageWithURL:[NSURL URLWithString:model.authorHeadImage] placeholderImage:[UIImage imageNamed:@"custom_avatar_subscribe"]];
+    _nameLab.text = model.authorName;
+    _timeLab.text = [TimeTool compareCurrentTime:model.newstime];
+    _contentLab.text = model.title;
+}
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {

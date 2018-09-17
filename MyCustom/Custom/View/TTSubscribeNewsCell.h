@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TTSubscribeAuthorViewModel;
 
 @interface TTSubscribeNewsCell : UITableViewCell
-
+@property (nonatomic, strong) TTSubscribeAuthorViewModel *vm;
 @end

@@ -13,7 +13,10 @@
 @property (nonatomic, strong) NSMutableArray *authorArr;
 @property (nonatomic, strong) NSMutableArray *subscribeNewsArr;
 
--(void)getSubscribeList:(void (^)(bool))finish;
+-(void)getSubscribeList:(void (^)(NSInteger))finish ;
 -(void) getRecommendAutorList:(void (^)(BOOL))finish;
 -(void)getSubscribeAuthorNewsList:(void (^)(bool))finish;
+
+-(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
+-(void)removeSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
 @end

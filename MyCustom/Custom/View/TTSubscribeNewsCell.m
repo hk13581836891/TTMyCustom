@@ -19,6 +19,10 @@
 
 @implementation TTSubscribeNewsCell
 
+-(void)setVm:(TTSubscribeAuthorViewModel *)vm{
+    _vm = vm;
+    _subNewsView.vm = vm;
+}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

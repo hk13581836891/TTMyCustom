@@ -17,10 +17,16 @@
 @end
 
 @class TTSubscribeAuthorModel;
+@class TTSubscribeAuthorViewModel;
 @interface TTSubscribeAuthorCollectionCell : UICollectionViewCell
 
 @property (nonatomic, strong) TTSubscribeAuthorModel *model;
+@property (nonatomic, strong) TTSubscribeAuthorViewModel *vm;
 - (void)setIndexPath:(NSIndexPath *)indexPath animationStopBlock:(void (^)(NSIndexPath *))block;
+
+@property (nonatomic, strong) UIButton *subscribeBtn;
+-(void)subScribeBtnClick;
+
 @end
 
 @interface TTSubscribeAuthorMoreCell : UICollectionViewCell

@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) TTSubscribeAuthorViewModel *authorVM;
 @property (nonatomic, strong) TTConcernTeamViewModel *conTeamVM;
-@property (nonatomic, assign) NSInteger subscribeFlag;
+@property (nonatomic, assign) NSInteger subscribeCount;
 
 @end
 
@@ -42,7 +42,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.subscribeFlag = 1;
     [self prepareTableView];
     [self reloadData];
 }
@@ -59,16 +58,17 @@
 -(void)reloadData{
     //订阅
     @weakify(self)
-    [self.authorVM getSubscribeList:^(bool isSuccess) {
+    [self.authorVM getSubscribeList:^(NSInteger subscribeCount) {
         @strongify(self)
-        if (isSuccess) {
-            [self.authorVM getSubscribeAuthorNewsList:^(bool isSuccess) {
+        self.subscribeCount = subscribeCount;
+        if (subscribeCount == 0) {
+            [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
                 if (isSuccess) {
                     [self.tableView reloadData];
                 }
             }];
         }else{
-            [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
+            [self.authorVM getSubscribeAuthorNewsList:^(bool isSuccess) {
                 if (isSuccess) {
                     [self.tableView reloadData];
                 }
@@ -107,10 +107,10 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
-        if (self.subscribeFlag == 1) {
-            return 152;
+        if (self.subscribeCount == 0) {
+            return 215;
         }
-        return 215;
+        return 152;
     }
     if (_conTeamVM.concernTeamArr.count > 0) {
         return 66;
@@ -142,13 +142,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        if (self.subscribeFlag == 0) {
+        if (self.subscribeCount == 0) {
             TTSubscribeAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscribeAuthorCell class]) forIndexPath:indexPath];
             cell.vm = _authorVM;
             @weakify(self)
             cell.subscribeView.reloadCell = ^{
                 @strongify(self);
-                self.subscribeFlag = 0;
+                self.subscribeCount = 1;
                 [self.authorVM getSubscribeAuthorNewsList:^(bool isSuccess) {
                     if (isSuccess) {
                         [self.tableView reloadData];
@@ -158,6 +158,7 @@
             return cell;
         }else{
             TTSubscribeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTSubscribeNewsCell class]) forIndexPath:indexPath];
+            cell.vm = _authorVM;
             return cell;
         }
     }
