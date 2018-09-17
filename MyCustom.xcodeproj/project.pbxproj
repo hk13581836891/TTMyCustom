@@ -11,6 +11,12 @@
 		D34C5113214F71AB00450968 /* TimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5111214F71AB00450968 /* TimeTool.m */; };
 		D34C5119214F767E00450968 /* EncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5118214F767E00450968 /* EncryptTool.m */; };
 		D34C511C214F770000450968 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C511A214F76FF00450968 /* RSA.m */; };
+		D34C5124214F87F900450968 /* TTSubscribeManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5123214F87F900450968 /* TTSubscribeManagerController.m */; };
+		D34C5127214F8AEB00450968 /* MainNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5126214F8AEB00450968 /* MainNavView.m */; };
+		D34C512A214F8B6500450968 /* TTSubscribeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5129214F8B6500450968 /* TTSubscribeTypeView.m */; };
+		D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */; };
+		D34C5134214F95D800450968 /* back_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5132214F95D800450968 /* back_black@2x.png */; };
+		D34C5135214F95D800450968 /* back_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5133214F95D800450968 /* back_black@3x.png */; };
 		D35B8254214CEC1000D6ECD2 /* TTNoConcernView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */; };
 		D398B0DD2148DACB00C0653F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DC2148DACB00C0653F /* AppDelegate.m */; };
 		D398B0E02148DACB00C0653F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DF2148DACB00C0653F /* ViewController.m */; };
@@ -135,6 +141,18 @@
 		D34C5118214F767E00450968 /* EncryptTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptTool.m; sourceTree = "<group>"; };
 		D34C511A214F76FF00450968 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		D34C511B214F76FF00450968 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		D34C5122214F87F900450968 /* TTSubscribeManagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeManagerController.h; sourceTree = "<group>"; };
+		D34C5123214F87F900450968 /* TTSubscribeManagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeManagerController.m; sourceTree = "<group>"; };
+		D34C5125214F8AEB00450968 /* MainNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavView.h; sourceTree = "<group>"; };
+		D34C5126214F8AEB00450968 /* MainNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavView.m; sourceTree = "<group>"; };
+		D34C5128214F8B6500450968 /* TTSubscribeTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeTypeView.h; sourceTree = "<group>"; };
+		D34C5129214F8B6500450968 /* TTSubscribeTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeTypeView.m; sourceTree = "<group>"; };
+		D34C512B214F8EF200450968 /* TTSubscribeManagerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSubscribeManagerView.h; sourceTree = "<group>"; };
+		D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeManagerView.m; sourceTree = "<group>"; };
+		D34C512E214F93CF00450968 /* StringContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringContants.h; sourceTree = "<group>"; };
+		D34C512F214F93CF00450968 /* ColorContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorContants.h; sourceTree = "<group>"; };
+		D34C5132214F95D800450968 /* back_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@2x.png"; sourceTree = "<group>"; };
+		D34C5133214F95D800450968 /* back_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@3x.png"; sourceTree = "<group>"; };
 		D35B8252214CEC1000D6ECD2 /* TTNoConcernView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNoConcernView.h; sourceTree = "<group>"; };
 		D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNoConcernView.m; sourceTree = "<group>"; };
 		D398B0D82148DACB00C0653F /* MyCustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +389,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D34C511F214F86AD00450968 /* 推荐大咖 */ = {
+			isa = PBXGroup;
+			children = (
+				D34C512B214F8EF200450968 /* TTSubscribeManagerView.h */,
+				D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */,
+				D34C5128214F8B6500450968 /* TTSubscribeTypeView.h */,
+				D34C5129214F8B6500450968 /* TTSubscribeTypeView.m */,
+			);
+			path = "推荐大咖";
+			sourceTree = "<group>";
+		};
+		D34C5120214F878F00450968 /* 我的订阅 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "我的订阅";
+			sourceTree = "<group>";
+		};
+		D34C5121214F879A00450968 /* 添加订阅 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "添加订阅";
+			sourceTree = "<group>";
+		};
+		D34C5131214F95C800450968 /* 其他 */ = {
+			isa = PBXGroup;
+			children = (
+				D34C5132214F95D800450968 /* back_black@2x.png */,
+				D34C5133214F95D800450968 /* back_black@3x.png */,
+			);
+			path = "其他";
+			sourceTree = "<group>";
+		};
 		D398B0CF2148DACB00C0653F = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +465,8 @@
 			children = (
 				D398B0F22148DAE000C0653F /* TTCustomViewController.h */,
 				D398B0F42148DAE000C0653F /* TTCustomViewController.m */,
+				D34C5122214F87F900450968 /* TTSubscribeManagerController.h */,
+				D34C5123214F87F900450968 /* TTSubscribeManagerController.m */,
 				D398B0F32148DAE000C0653F /* ViewModel */,
 				D398B0F52148DAE000C0653F /* Model */,
 				D398B0F62148DAE000C0653F /* View */,
@@ -447,6 +501,9 @@
 			children = (
 				D398B1262148DE7300C0653F /* TTSetCusomView.h */,
 				D398B1272148DE7300C0653F /* TTSetCusomView.m */,
+				D34C511F214F86AD00450968 /* 推荐大咖 */,
+				D34C5120214F878F00450968 /* 我的订阅 */,
+				D34C5121214F879A00450968 /* 添加订阅 */,
 				D398B11D2148DD3A00C0653F /* TTSubscribeAuthorCell.h */,
 				D398B11E2148DD3A00C0653F /* TTSubscribeAuthorCell.m */,
 				D3A5BA77214A04B9000B4394 /* TTSubscribeAuthorView.h */,
@@ -599,6 +656,10 @@
 		D398B2A42148E6CE00C0653F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				D34C512F214F93CF00450968 /* ColorContants.h */,
+				D34C512E214F93CF00450968 /* StringContants.h */,
+				D34C5125214F8AEB00450968 /* MainNavView.h */,
+				D34C5126214F8AEB00450968 /* MainNavView.m */,
 				D34C5112214F71AB00450968 /* TimeTool.h */,
 				D34C5111214F71AB00450968 /* TimeTool.m */,
 				D3A5BB9C214A4B5C000B4394 /* HttpTool.h */,
@@ -626,6 +687,7 @@
 		D398B2B22149164200C0653F /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				D34C5131214F95C800450968 /* 其他 */,
 				D398B2B32149165400C0653F /* 定制 */,
 			);
 			path = ImageSource;
@@ -790,11 +852,13 @@
 				D398B2F22149165400C0653F /* sub_news_topbg@3x.png in Resources */,
 				D398B2DD2149165400C0653F /* custom_list_right@3x.png in Resources */,
 				D398B2D62149165400C0653F /* subscribe_false@3x.png in Resources */,
+				D34C5134214F95D800450968 /* back_black@2x.png in Resources */,
 				D398B2E42149165400C0653F /* subscribe_true@3x.png in Resources */,
 				D398B2EC2149165400C0653F /* more_team_big@3x.png in Resources */,
 				D398B2D42149165400C0653F /* more_team_circle@2x.png in Resources */,
 				D398B1502148E09700C0653F /* README.md in Resources */,
 				D398B2EE2149165400C0653F /* my_sign_true@2x.png in Resources */,
+				D34C5135214F95D800450968 /* back_black@3x.png in Resources */,
 				D398B2E22149165400C0653F /* custom_unfinish_btn@3x.png in Resources */,
 				D398B2E72149165400C0653F /* custom_subscribe_add@2x.png in Resources */,
 				D398B2DB2149165400C0653F /* custom_no_land@2x.png in Resources */,
@@ -896,6 +960,7 @@
 				D3A5BBCF214A55C1000B4394 /* SDWebImageDownloader.m in Sources */,
 				D398B2972148E0C100C0653F /* NSObject+MJKeyValue.m in Sources */,
 				D398B2A02148E0C200C0653F /* NSObject+MJMember.m in Sources */,
+				D34C5124214F87F900450968 /* TTSubscribeManagerController.m in Sources */,
 				D398B11B2148DBA400C0653F /* MASViewAttribute.m in Sources */,
 				D3A5BA7C214A3087000B4394 /* YTAnimation.m in Sources */,
 				D398B2B121490F6B00C0653F /* UIButton+InitExtension.m in Sources */,
@@ -915,6 +980,7 @@
 				D398B29F2148E0C200C0653F /* MJFoundation.m in Sources */,
 				D398B1542148E09700C0653F /* UIImageView+AFNetworking.m in Sources */,
 				D34C5119214F767E00450968 /* EncryptTool.m in Sources */,
+				D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */,
 				D398B1172148DBA400C0653F /* NSArray+MASAdditions.m in Sources */,
 				D398B29A2148E0C100C0653F /* MJConst.m in Sources */,
 				D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */,
@@ -940,12 +1006,14 @@
 				D398B1192148DBA400C0653F /* MASConstraint.m in Sources */,
 				D398B29D2148E0C200C0653F /* MJMethod.m in Sources */,
 				D398B1582148E09700C0653F /* AFAutoPurgingImageCache.m in Sources */,
+				D34C512A214F8B6500450968 /* TTSubscribeTypeView.m in Sources */,
 				D398B1122148DBA400C0653F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D398B1572148E09700C0653F /* UIWebView+AFNetworking.m in Sources */,
 				D398B2AE21490DC400C0653F /* UILabel+InitExtension.m in Sources */,
 				D3A5BBD1214A55C1000B4394 /* UIImage+MultiFormat.m in Sources */,
 				D398B1162148DBA400C0653F /* MASLayoutConstraint.m in Sources */,
 				D3A5BBD4214A55C1000B4394 /* SDImageCache.m in Sources */,
+				D34C5127214F8AEB00450968 /* MainNavView.m in Sources */,
 				D398B15A2148E09700C0653F /* AFURLResponseSerialization.m in Sources */,
 				D398B29E2148E0C200C0653F /* MJArgument.m in Sources */,
 				D3A5BA79214A04B9000B4394 /* TTSubscribeAuthorView.m in Sources */,

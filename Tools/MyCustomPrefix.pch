@@ -19,6 +19,7 @@
 #import "Masonry.h"
 #import "HttpTool.h"
 #import "EncryptTool.h"
+#import "MainNavView.h"
 #import "UIImageView+WebCache.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.

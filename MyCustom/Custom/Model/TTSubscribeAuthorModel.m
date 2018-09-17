@@ -7,7 +7,15 @@
 //
 
 #import "TTSubscribeAuthorModel.h"
+#import "MJExtension.h"
 
 @implementation TTSubscribeAuthorModel
 
+@end
+
+@implementation TTAuthorTypeModel
+
+-(NSDictionary *)replacedKeyFromPropertyName{
+    return @{@"ID" : @"id"};
+}
 @end

@@ -119,7 +119,12 @@
     }
     return CGSizeMake(itemWidth, itemHeight);
 }
-
+#pragma mark collectionView代理方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.item == _tempArr.count) {
+        [_vm pushToSubscribeManager];
+    }
+}
 @end
 
 #import <ReactiveObjC/ReactiveObjC.h>

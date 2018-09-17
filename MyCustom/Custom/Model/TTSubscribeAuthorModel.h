@@ -36,3 +36,15 @@ authorId: "067bc6a0-1860-46ff-8547-9489ca9a8d07"
 @property (nonatomic, copy) NSString *title;
 
 @end
+
+/*
+ "id": 1,
+ "createDate": 1536629611000,
+ "modifyDate": 1536629611000,
+ "order": 1,
+ "name": "足球"
+ */
+@interface TTAuthorTypeModel : NSObject
+@property (nonatomic, strong) NSNumber *ID;
+@property (nonatomic, copy) NSString *name;
+@end

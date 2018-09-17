@@ -15,6 +15,7 @@
 #import "TTSubscribeAuthorViewModel.h"
 #import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "TTSubscribeManagerController.h""
 
 @interface TTCustomViewController ()
 
@@ -44,6 +45,16 @@
     [super viewDidLoad];
     [self prepareTableView];
     [self reloadData];
+    [self clickEvent];
+}
+-(void)clickEvent{
+    @weakify(self)
+    [[_authorVM rac_signalForSelector:@selector(pushToSubscribeManager)] subscribeNext:^(RACTuple * _Nullable x) {
+       @strongify(self)
+        TTSubscribeManagerController *vc = [TTSubscribeManagerController new];
+        vc.vm = self.authorVM;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 -(void)prepareTableView{
     
@@ -58,10 +69,10 @@
 -(void)reloadData{
     //订阅
     @weakify(self)
-    [self.authorVM getSubscribeList:^(NSInteger subscribeCount) {
+    [self.authorVM getSubscribeList:^(bool isSuccess) {
         @strongify(self)
-        self.subscribeCount = subscribeCount;
-        if (subscribeCount == 0) {
+        self.subscribeCount = self.authorVM.mySubArr.count;
+        if (self.subscribeCount == 0) {
             [self.authorVM getRecommendAutorList:^(BOOL isSuccess) {
                 if (isSuccess) {
                     [self.tableView reloadData];

@@ -23,13 +23,17 @@
     _vm = vm;
     _subscribeView.vm = vm;
 }
-
+-(void)moreBtnClick{
+    [_vm pushToSubscribeManager];
+}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = HEXCOLOR(0xF3F4F5);
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupUI];
+        
+        [_moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
     }
     
     return self;

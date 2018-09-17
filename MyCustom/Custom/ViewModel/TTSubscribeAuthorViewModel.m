@@ -27,23 +27,30 @@
     }
     return _subscribeNewsArr;
 }
+-(NSMutableArray *)authorTypeArr{
+    if (!_authorTypeArr) {
+        _authorTypeArr = [NSMutableArray array];
+    }
+    return _authorTypeArr;
+}
+-(NSMutableArray *)mySubArr{
+    if (!_mySubArr) {
+        _mySubArr = [NSMutableArray array];
+    }
+    return _mySubArr;
+}
 #pragma mark 我的订阅
-
--(void)getSubscribeList:(void (^)(NSInteger))finish {
+-(void)getSubscribeList:(void (^)(bool))finish {
     NSString *url = @"http://apidev.ttplus.cn/subscribe/editor_page?pageNumber=1&pageSize=10&userId=61";
     [HttpTool httpGet:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
-            NSArray *tempArr = [responseObject objectForKey:@"content"];
-            if (tempArr.count > 0) {
-                finish(tempArr.count);
-            }else{
-                finish(0);
-            }
+            [self.mySubArr addObjectsFromArray:[TTSubscribeAuthorModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]]];
+            finish(true);
         }else{
-            finish(0);
+            finish(false);
         }
     } failure:^(NSError *error) {
-        finish(0);
+        finish(false);
     }];
 }
 #pragma mark 推荐大咖
@@ -77,6 +84,20 @@
       finish(false);
     }];
 }
+#pragma mark 作者分类列表
+-(void)getAuthorTypeList:(void (^)(bool))finish{
+    NSString *url = @"https://apidev.ttplus.cn/editor_category/list";
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if ([[responseObject valueForKey:@"type"] isEqual:@"success"]) {
+            [self.authorTypeArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]]];
+            finish(true);
+        }else{
+            finish(false);
+        }
+    } failure:^(NSError *error) {
+        finish(false);
+    }];
+}
 
 #pragma mark 订阅或取消订阅作者
 -(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish{
@@ -106,4 +127,8 @@
     }];
 }
 
+
+#pragma mark 事件处理
+-(void)pushToSubscribeManager{}
+-(void)subscribeManagerBack{}
 @end

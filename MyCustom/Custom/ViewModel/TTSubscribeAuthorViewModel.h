@@ -12,11 +12,17 @@
 @interface TTSubscribeAuthorViewModel : NSObject
 @property (nonatomic, strong) NSMutableArray *authorArr;
 @property (nonatomic, strong) NSMutableArray *subscribeNewsArr;
+@property (nonatomic, strong) NSMutableArray *authorTypeArr;
+@property (nonatomic, strong) NSMutableArray *mySubArr;
 
--(void)getSubscribeList:(void (^)(NSInteger))finish ;
--(void) getRecommendAutorList:(void (^)(BOOL))finish;
+-(void)getSubscribeList:(void (^)(bool))finish ;
+-(void)getRecommendAutorList:(void (^)(BOOL))finish;
 -(void)getSubscribeAuthorNewsList:(void (^)(bool))finish;
+-(void)getAuthorTypeList:(void (^)(bool))finish;
 
 -(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
 -(void)removeSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
+
+-(void)pushToSubscribeManager;
+-(void)subscribeManagerBack;
 @end
