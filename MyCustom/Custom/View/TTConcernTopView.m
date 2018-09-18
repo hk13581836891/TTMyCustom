@@ -24,7 +24,7 @@
 }
 
 -(void)managerBtnClick{
-    _managerBtn.backgroundColor = UIColor.yellowColor;
+    [_vm pushToConcerTeam];
 }
 - (instancetype)init
 {

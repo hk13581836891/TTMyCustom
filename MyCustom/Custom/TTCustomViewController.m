@@ -17,6 +17,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "TTSubscribeManagerController.h"
 #import "TTMySubscribeController.h"
+#import "TTConcernTeamController.h"
 
 @interface TTCustomViewController ()
 
@@ -70,6 +71,7 @@
     [self clickEvent];
 }
 -(void)clickEvent{
+    //订阅
     @weakify(self)
     [[self.authorVM rac_signalForSelector:@selector(pushToMySubscribe)] subscribeNext:^(RACTuple * _Nullable x) {
         @strongify(self)
@@ -89,6 +91,14 @@
        @strongify(self)
         TTSubscribeManagerController *vc = [TTSubscribeManagerController new];
         vc.vm = self.authorVM;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+    
+    //球队
+    [[self.conTeamVM rac_signalForSelector:@selector(pushToConcerTeam)] subscribeNext:^(RACTuple * _Nullable x) {
+        @strongify(self)
+        TTConcernTeamController *vc = [TTConcernTeamController new];
+        vc.vm = self.conTeamVM;
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }

@@ -24,6 +24,8 @@
 
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, copy) NSString *desc;
+
+@property (nonatomic, assign) NSInteger count;
 @end
 
 
