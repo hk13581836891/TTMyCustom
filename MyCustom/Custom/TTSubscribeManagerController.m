@@ -20,6 +20,9 @@
 
 -(void)setVm:(TTSubscribeAuthorViewModel *)vm{
     _vm = vm;
+    [vm getSubscribeList:^(bool isSuccess) {
+        
+    }];
 }
 -(void)loadView{
     [super loadView];
@@ -30,14 +33,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
-    
-    [self prepareView];
     [self reloadDate];
     [self clickEvent];
 }
 -(void)clickEvent{
     @weakify(self);
-    [[_vm rac_signalForSelector:@selector(subscribeManagerBack)] subscribeNext:^(RACTuple * _Nullable x) {
+    [[_vm rac_signalForSelector:@selector(getBack)] subscribeNext:^(RACTuple * _Nullable x) {
         @strongify(self);
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -54,7 +55,7 @@
         [self.subManagerView.typeView reloadData];
     }];
 }
--(void)prepareView{
-    
+-(void)dealloc{
+    [_vm.categoryArr removeAllObjects];
 }
 @end

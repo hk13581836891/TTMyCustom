@@ -22,7 +22,7 @@
     self.typeView.vm = vm;
 }
 -(void)backBtnDown{
-    [_vm subscribeManagerBack];
+    [_vm getBack];
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -36,6 +36,7 @@
 -(void)prepareTableView{
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.showsVerticalScrollIndicator = NO;
     [_tableView registerClass:[TTCategoryAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTCategoryAuthorCell class])];
 }
 #pragma mark tableView datasource

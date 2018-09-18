@@ -132,6 +132,9 @@
 		D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */; };
 		D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */; };
 		D3C9B0732150C75800FB3867 /* TTCategoryAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */; };
+		D3C9B0772150D8D300FB3867 /* TTMySubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0762150D8D300FB3867 /* TTMySubscribeController.m */; };
+		D3C9B07A2150D8FA00FB3867 /* TTMySubscribeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0792150D8FA00FB3867 /* TTMySubscribeView.m */; };
+		D3C9B07D2150D9B800FB3867 /* TTMySubscribeManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B07C2150D9B800FB3867 /* TTMySubscribeManageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -359,6 +362,12 @@
 		D3B5F4AC214BBD0A00F4223A /* TTSubscribeNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSubscribeNewsView.h; sourceTree = "<group>"; };
 		D3C9B0712150C75800FB3867 /* TTCategoryAuthorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCategoryAuthorCell.h; sourceTree = "<group>"; };
 		D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCategoryAuthorCell.m; sourceTree = "<group>"; };
+		D3C9B0752150D8D300FB3867 /* TTMySubscribeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMySubscribeController.h; sourceTree = "<group>"; };
+		D3C9B0762150D8D300FB3867 /* TTMySubscribeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMySubscribeController.m; sourceTree = "<group>"; };
+		D3C9B0782150D8FA00FB3867 /* TTMySubscribeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMySubscribeView.h; sourceTree = "<group>"; };
+		D3C9B0792150D8FA00FB3867 /* TTMySubscribeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMySubscribeView.m; sourceTree = "<group>"; };
+		D3C9B07B2150D9B800FB3867 /* TTMySubscribeManageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMySubscribeManageView.h; sourceTree = "<group>"; };
+		D3C9B07C2150D9B800FB3867 /* TTMySubscribeManageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMySubscribeManageView.m; sourceTree = "<group>"; };
 		DA3F2A63ACEF23FCA903CD26 /* Pods_MyCustom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCustom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AADB80FE8B90A68F8546CC /* Pods-MyCustom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCustom.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCustom/Pods-MyCustom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,7 +401,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D34C511F214F86AD00450968 /* 推荐大咖 */ = {
+		D34C511F214F86AD00450968 /* 订阅管理 */ = {
 			isa = PBXGroup;
 			children = (
 				D34C512B214F8EF200450968 /* TTSubscribeManagerView.h */,
@@ -402,21 +411,14 @@
 				D3C9B0712150C75800FB3867 /* TTCategoryAuthorCell.h */,
 				D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */,
 			);
+			path = "订阅管理";
+			sourceTree = "<group>";
+		};
+		D34C5120214F878F00450968 /* 推荐大咖 */ = {
+			isa = PBXGroup;
+			children = (
+			);
 			path = "推荐大咖";
-			sourceTree = "<group>";
-		};
-		D34C5120214F878F00450968 /* 我的订阅 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "我的订阅";
-			sourceTree = "<group>";
-		};
-		D34C5121214F879A00450968 /* 添加订阅 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "添加订阅";
 			sourceTree = "<group>";
 		};
 		D34C5131214F95C800450968 /* 其他 */ = {
@@ -470,6 +472,8 @@
 			children = (
 				D398B0F22148DAE000C0653F /* TTCustomViewController.h */,
 				D398B0F42148DAE000C0653F /* TTCustomViewController.m */,
+				D3C9B0752150D8D300FB3867 /* TTMySubscribeController.h */,
+				D3C9B0762150D8D300FB3867 /* TTMySubscribeController.m */,
 				D34C5122214F87F900450968 /* TTSubscribeManagerController.h */,
 				D34C5123214F87F900450968 /* TTSubscribeManagerController.m */,
 				D398B0F32148DAE000C0653F /* ViewModel */,
@@ -506,9 +510,9 @@
 			children = (
 				D398B1262148DE7300C0653F /* TTSetCusomView.h */,
 				D398B1272148DE7300C0653F /* TTSetCusomView.m */,
-				D34C511F214F86AD00450968 /* 推荐大咖 */,
-				D34C5120214F878F00450968 /* 我的订阅 */,
-				D34C5121214F879A00450968 /* 添加订阅 */,
+				D3C9B0742150D5B600FB3867 /* 我的订阅 */,
+				D34C511F214F86AD00450968 /* 订阅管理 */,
+				D34C5120214F878F00450968 /* 推荐大咖 */,
 				D398B11D2148DD3A00C0653F /* TTSubscribeAuthorCell.h */,
 				D398B11E2148DD3A00C0653F /* TTSubscribeAuthorCell.m */,
 				D3A5BA77214A04B9000B4394 /* TTSubscribeAuthorView.h */,
@@ -783,6 +787,17 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		D3C9B0742150D5B600FB3867 /* 我的订阅 */ = {
+			isa = PBXGroup;
+			children = (
+				D3C9B0782150D8FA00FB3867 /* TTMySubscribeView.h */,
+				D3C9B0792150D8FA00FB3867 /* TTMySubscribeView.m */,
+				D3C9B07B2150D9B800FB3867 /* TTMySubscribeManageView.h */,
+				D3C9B07C2150D9B800FB3867 /* TTMySubscribeManageView.m */,
+			);
+			path = "我的订阅";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -974,6 +989,7 @@
 				D398B15B2148E09700C0653F /* AFHTTPSessionManager.m in Sources */,
 				D398B1532148E09700C0653F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D398B2A32148E48B00C0653F /* TTNoConcernCell.m in Sources */,
+				D3C9B07D2150D9B800FB3867 /* TTMySubscribeManageView.m in Sources */,
 				D3A5BBCE214A55C1000B4394 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D398B1562148E09700C0653F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D398B1282148DE7300C0653F /* TTSetCusomView.m in Sources */,
@@ -1005,8 +1021,10 @@
 				D3A5BBDB214A55C2000B4394 /* UIButton+WebCache.m in Sources */,
 				D398B0EB2148DACE00C0653F /* main.m in Sources */,
 				D398B15E2148E09700C0653F /* AFNetworkReachabilityManager.m in Sources */,
+				D3C9B0772150D8D300FB3867 /* TTMySubscribeController.m in Sources */,
 				D398B1182148DBA400C0653F /* View+MASAdditions.m in Sources */,
 				D34C511C214F770000450968 /* RSA.m in Sources */,
+				D3C9B07A2150D8FA00FB3867 /* TTMySubscribeView.m in Sources */,
 				D398B1152148DBA400C0653F /* MASConstraintMaker.m in Sources */,
 				D3B5F49E214B588B00F4223A /* TTConcernTeamModel.m in Sources */,
 				D398B1192148DBA400C0653F /* MASConstraint.m in Sources */,

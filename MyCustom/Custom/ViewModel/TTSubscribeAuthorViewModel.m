@@ -45,11 +45,20 @@
     }
     return _categoryArr;
 }
+-(NSMutableArray *)mySubNewsArr{
+    if (!_mySubNewsArr) {
+        _mySubNewsArr = [NSMutableArray array];
+    }
+    return _mySubNewsArr;
+}
 #pragma mark 我的订阅
 -(void)getSubscribeList:(void (^)(bool))finish {
     NSString *url = @"http://api.ttplus.cn/subscribe/editor_page?pageNumber=1&pageSize=10&userId=61";
     [HttpTool httpGet:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+            if (self.mySubArr) {
+                [self.mySubArr removeAllObjects];
+            }
             [self.mySubArr addObjectsFromArray:[TTSubscribeAuthorModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]]];
             finish(true);
         }else{
@@ -65,7 +74,9 @@
     [HttpTool httpGet:url params:nil success:^(id responseObject) {
         
         if ([[responseObject objectForKey:@"type"] isEqual:@"success"]) {
-            
+            if (self.authorArr) {
+                [self.authorArr removeAllObjects];
+            }
             NSArray *array = [TTSubscribeAuthorModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]];
             [self.authorArr addObjectsFromArray:array];
             
@@ -84,6 +95,9 @@
 {
     NSString *url = @"http://api.ttplus.cn/subscribe/user?userid=5x4EhhMRX4s%3D&pagenum=0";
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if (self.subscribeNewsArr) {
+            [self.subscribeNewsArr removeAllObjects];
+        }
         [self.subscribeNewsArr addObjectsFromArray:[TTSubscribeAuthorModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"rows"]]];
         finish(true);
     } failure:^(NSError *error) {
@@ -98,7 +112,9 @@
             if (self.authorTypeArr) {
                 [self.authorTypeArr removeAllObjects];
             }
-            [self.authorTypeArr addObject:[TTAuthorTypeModel objectWithKeyValues:@{@"name":@"我的", @"id": @0}]];
+            if (self.mySubArr.count > 0) {
+                [self.authorTypeArr addObject:[TTAuthorTypeModel objectWithKeyValues:@{@"name":@"我的", @"id": @0}]];
+            }
             [self.authorTypeArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"content"] objectForKey:@"list"]]];
             finish(true);
         }else{
@@ -141,6 +157,19 @@
         finish(false);
     }];
 }
+#pragma mark 获取订阅作者新闻
+-(void)getMySubscribeAuthorNewsList:(void (^)(bool))finish{
+    NSString *url = @"https://api.ttplus.cn/subscribe/editorwithstatus/0?userid=5x4EhhMRX4s%3D&categoryId=1";
+    [HttpTool httpPost:url params:nil success:^(id responseObject) {
+        if (self.mySubNewsArr) {
+            [self.mySubNewsArr removeAllObjects];
+        }
+        [self.mySubNewsArr addObjectsFromArray:[TTAuthorTypeModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"newsdatas"]]];
+        finish(true);
+    } failure:^(NSError *error) {
+        finish(false);
+    }];
+}
 #pragma mark 订阅或取消订阅作者
 -(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish{
     //    addSubscrStr=[NSString stringWithFormat:@"%@?editorid=%@&userid=%@",[TTInitInterfaceManager getUrlWithKey:Init_app url:@"removesub"],[Tools JiaMiUserId:_cellModel.authorId],[Tools JiaMiUserId]];
@@ -171,7 +200,12 @@
 
 
 #pragma mark 事件处理
--(void)pushToSubscribeManager{}
--(void)subscribeManagerBack{}
+-(void)pushToMySubscribe{
+    
+}
+-(void)pushToSubscribeManager{
+    
+}
+-(void)getBack{}
 -(void)reloadCategoryTableView{}
 @end

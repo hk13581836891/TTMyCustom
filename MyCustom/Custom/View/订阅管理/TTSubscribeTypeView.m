@@ -21,8 +21,8 @@
     [self reloadData];
     
     //设置默认选中 cell
-//    [self layoutIfNeeded];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self layoutIfNeeded];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:YES scrollPosition:(UICollectionViewScrollPositionNone)];
         [self collectionView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     });

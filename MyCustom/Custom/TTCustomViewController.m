@@ -15,7 +15,8 @@
 #import "TTSubscribeAuthorViewModel.h"
 #import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
-#import "TTSubscribeManagerController.h""
+#import "TTSubscribeManagerController.h"
+#import "TTMySubscribeController.h"
 
 @interface TTCustomViewController ()
 
@@ -40,33 +41,8 @@
     }
     return _conTeamVM;
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self prepareTableView];
-    [self reloadData];
-    [self clickEvent];
-}
--(void)clickEvent{
-    @weakify(self)
-    [[_authorVM rac_signalForSelector:@selector(pushToSubscribeManager)] subscribeNext:^(RACTuple * _Nullable x) {
-       @strongify(self)
-        TTSubscribeManagerController *vc = [TTSubscribeManagerController new];
-        vc.vm = self.authorVM;
-        [self presentViewController:vc animated:YES completion:nil];
-    }];
-}
--(void)prepareTableView{
-    
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
-    [self.tableView registerClass:[TTSubscribeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeNewsCell class])];
-    [self.tableView registerClass:[TTSubscribeAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCell class])];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
-}
--(void)reloadData{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     //订阅
     @weakify(self)
     [self.authorVM getSubscribeList:^(bool isSuccess) {
@@ -86,9 +62,50 @@
             }];
         }
     }];
-   
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self prepareTableView];
+    [self reloadData];
+    [self clickEvent];
+}
+-(void)clickEvent{
+    @weakify(self)
+    [[self.authorVM rac_signalForSelector:@selector(pushToMySubscribe)] subscribeNext:^(RACTuple * _Nullable x) {
+        @strongify(self)
+        TTMySubscribeController *vc = [TTMySubscribeController new];
+        vc.vm = self.authorVM;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
     
+    [[_authorVM rac_signalForSelector:@selector(pushToSubscribeManager)] subscribeNext:^(RACTuple * _Nullable x) {
+        @strongify(self)
+        TTSubscribeManagerController *vc = [TTSubscribeManagerController new];
+        vc.vm = self.authorVM;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+    
+    [[_authorVM rac_signalForSelector:@selector(pushToSubscribeManager)] subscribeNext:^(RACTuple * _Nullable x) {
+       @strongify(self)
+        TTSubscribeManagerController *vc = [TTSubscribeManagerController new];
+        vc.vm = self.authorVM;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+}
+-(void)prepareTableView{
+    
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableHeaderView = [[TTSetCusomView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
+    [self.tableView registerClass:[TTSubscribeNewsCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeNewsCell class])];
+    [self.tableView registerClass:[TTSubscribeAuthorCell class] forCellReuseIdentifier:NSStringFromClass([TTSubscribeAuthorCell class])];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [self.tableView registerClass:[TTNoConcernCell class] forCellReuseIdentifier:NSStringFromClass([TTNoConcernCell class])];
+}
+-(void)reloadData{
+   
     //球队定制
+    @weakify(self)
     [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
         @strongify(self)
         if (isSuccess) {

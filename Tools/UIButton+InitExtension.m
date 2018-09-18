@@ -83,7 +83,7 @@
 -(void)getDirectionBtn:(UIButton *)btn direction:(ButtonImageDirection)direction {
     switch (direction) {
         case 0:{
-            CGFloat interval = 2.0;
+            CGFloat interval = 10.0;
             btn.imageEdgeInsets = UIEdgeInsetsMake(0,-(interval / 2), 0,0);
             btn.titleEdgeInsets = UIEdgeInsetsMake(0, (interval / 2), 0, 0);
         }break;
