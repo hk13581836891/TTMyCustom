@@ -49,7 +49,7 @@
 {
 //    NSString * followList = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_follow_list"];
 //    followList = [NSString stringWithFormat:@"%@?userId=%@&pageNumber=1&pageSize=20",followList,USERID];
-    NSString *url = @"http://apidev.ttplus.cn/custom_news/follow_list?userId=61&pageNumber=1&pageSize=20";
+    NSString *url = @"http://api.ttplus.cn/custom_news/follow_list?userId=61&pageNumber=1&pageSize=20";
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
             if (self.concernTeamArr) {
@@ -71,7 +71,7 @@
 {
 //    NSString *secondaryUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_secondary"];
 //    secondaryUrl = [NSString stringWithFormat:@"%@?pid=%@&userId=%@&pageNumber=1&pageSize=30",secondaryUrl,pid,USERID];
-    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/custom_news/secondary?pid=%@&userId=61&pageNumber=1&pageSize=30",@(0)];
+    NSString *url = [NSString stringWithFormat:@"http://api.ttplus.cn/custom_news/secondary?pid=%@&userId=61&pageNumber=1&pageSize=30",@(0)];
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
             NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
@@ -89,7 +89,7 @@
 -(void)getTeamTypeList
 {
     //    NSString *rootUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_root"];
-    NSString *url = @"http://apidev.ttplus.cn/custom_news/root";
+    NSString *url = @"http://api.ttplus.cn/custom_news/root";
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
             NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
@@ -102,7 +102,7 @@
 
 #pragma mark 球队关注或取消关注
 -(void)concernCancelTeam:(NSNumber *)wordId status:(NSString *)status finish:(void (^)(bool))finish{
-    NSString *url = [NSString stringWithFormat:@"http://apidev.ttplus.cn/custom_news/follow?userId=61&wordId=%@&status=%@",wordId,status];
+    NSString *url = [NSString stringWithFormat:@"http://api.ttplus.cn/custom_news/follow?userId=61&wordId=%@&status=%@",wordId,status];
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
             

@@ -36,10 +36,15 @@
     [self clickEvent];
 }
 -(void)clickEvent{
-    @weakify(self)
+    @weakify(self);
     [[_vm rac_signalForSelector:@selector(subscribeManagerBack)] subscribeNext:^(RACTuple * _Nullable x) {
-        @strongify(self)
+        @strongify(self);
         [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [[_vm rac_signalForSelector:@selector(reloadCategoryTableView)] subscribeNext:^(RACTuple * _Nullable x) {
+        @strongify(self);
+            [self.subManagerView.tableView reloadData];
     }];
 }
 -(void)reloadDate{

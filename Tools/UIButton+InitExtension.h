@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 } Hotspot;
 
 @interface UIButton (InitExtension)
-
+-(instancetype) initWithBackImage:(UIImage *)image selectedImage:(UIImage *) selectedImage;
 -(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image highlightedImage:(UIImage *) highlightedImage;
 -(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image;
 -(instancetype) initWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image imgDirection:(ButtonImageDirection)direction backColor:(UIColor *)backColor;

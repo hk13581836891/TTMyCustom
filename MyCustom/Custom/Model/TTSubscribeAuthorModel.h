@@ -35,6 +35,8 @@ authorId: "067bc6a0-1860-46ff-8547-9489ca9a8d07"
 @property (nonatomic, assign) NSInteger authorAuthentication;
 @property (nonatomic, copy) NSString *title;
 
+@property (nonatomic, strong) NSNumber *subscribestatus;
+
 @end
 
 /*

@@ -90,11 +90,13 @@
     
     //球队定制
     [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
+        @strongify(self)
         if (isSuccess) {
             [self.tableView reloadData];
         }
     }];
     [self.conTeamVM getRecommendTeamDataList:^(bool isSuccess) {
+        @strongify(self)
         if (isSuccess) {
             [self.tableView reloadData];
         }

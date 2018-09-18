@@ -17,4 +17,5 @@
 
 @property (nonatomic, strong) TTAuthorTypeModel *model;
 @property (nonatomic, strong) UILabel *nameLab;
+@property (nonatomic, strong) UIView *redLine;
 @end

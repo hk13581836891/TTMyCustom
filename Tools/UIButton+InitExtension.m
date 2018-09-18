@@ -11,6 +11,13 @@
 
 @implementation UIButton (InitExtension)
 
+-(instancetype) initWithBackImage:(UIImage *)image selectedImage:(UIImage *) selectedImage{
+    UIButton *btn = [self initWithText:nil backImage:image];
+    [btn setBackgroundImage:selectedImage forState:(UIControlStateSelected)];
+    
+    [btn sizeToFit];
+    return btn;
+}
 -(instancetype) initWithText:(NSString *)text backImage:(UIImage *)image highlightedImage:(UIImage *) highlightedImage{
     UIButton *btn = [self initWithText:text backImage:image];
     [btn setBackgroundImage:highlightedImage forState:(UIControlStateHighlighted)];

@@ -11,7 +11,7 @@
 
 @class TTSubscribeAuthorViewModel;
 
-@interface TTSubscribeManagerView : UIView
+@interface TTSubscribeManagerView : UIView<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) TTSubscribeTypeView *typeView;
 @property (nonatomic, strong) UITableView *tableView;
 

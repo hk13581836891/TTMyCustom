@@ -131,6 +131,7 @@
 		D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */; };
 		D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */; };
 		D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */; };
+		D3C9B0732150C75800FB3867 /* TTCategoryAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -356,6 +357,8 @@
 		D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeNewsCell.m; sourceTree = "<group>"; };
 		D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSubscribeNewsView.m; sourceTree = "<group>"; };
 		D3B5F4AC214BBD0A00F4223A /* TTSubscribeNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSubscribeNewsView.h; sourceTree = "<group>"; };
+		D3C9B0712150C75800FB3867 /* TTCategoryAuthorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCategoryAuthorCell.h; sourceTree = "<group>"; };
+		D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCategoryAuthorCell.m; sourceTree = "<group>"; };
 		DA3F2A63ACEF23FCA903CD26 /* Pods_MyCustom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCustom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AADB80FE8B90A68F8546CC /* Pods-MyCustom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCustom.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCustom/Pods-MyCustom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -396,6 +399,8 @@
 				D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */,
 				D34C5128214F8B6500450968 /* TTSubscribeTypeView.h */,
 				D34C5129214F8B6500450968 /* TTSubscribeTypeView.m */,
+				D3C9B0712150C75800FB3867 /* TTCategoryAuthorCell.h */,
+				D3C9B0722150C75800FB3867 /* TTCategoryAuthorCell.m */,
 			);
 			path = "推荐大咖";
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 				D398B29F2148E0C200C0653F /* MJFoundation.m in Sources */,
 				D398B1542148E09700C0653F /* UIImageView+AFNetworking.m in Sources */,
 				D34C5119214F767E00450968 /* EncryptTool.m in Sources */,
+				D3C9B0732150C75800FB3867 /* TTCategoryAuthorCell.m in Sources */,
 				D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */,
 				D398B1172148DBA400C0653F /* NSArray+MASAdditions.m in Sources */,
 				D398B29A2148E0C100C0653F /* MJConst.m in Sources */,

@@ -14,15 +14,18 @@
 @property (nonatomic, strong) NSMutableArray *subscribeNewsArr;
 @property (nonatomic, strong) NSMutableArray *authorTypeArr;
 @property (nonatomic, strong) NSMutableArray *mySubArr;
+@property (nonatomic, strong) NSMutableArray *categoryArr;//分类作者新闻
 
 -(void)getSubscribeList:(void (^)(bool))finish ;
 -(void)getRecommendAutorList:(void (^)(BOOL))finish;
 -(void)getSubscribeAuthorNewsList:(void (^)(bool))finish;
 -(void)getAuthorTypeList:(void (^)(bool))finish;
+-(void)getCategoryAuthNewsList:(NSNumber *)categoryId finish:(void (^)(bool))finish;
 
 -(void)addSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
 -(void)removeSubscribe:(NSString *)editorid finish:(void (^)(bool))finish;
 
 -(void)pushToSubscribeManager;
 -(void)subscribeManagerBack;
+-(void)reloadCategoryTableView;
 @end
