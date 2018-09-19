@@ -16,16 +16,7 @@
 #define finishBtnH 25
 #define footerH 42
 @interface TTConcernTeamController ()<UITableViewDelegate,UITableViewDataSource>
-{
-  
-    NSMutableArray *customRootArr;
-    __block NSMutableArray *customSecondaryArr;
-    NSInteger nCurrent;
-    int pageNumber;
-    NSNumber *_pid;
-    UIView *footerView;
-    float _oldOffset;
-}
+
 @property (nonatomic, strong) TTConcernTeamView *teamView;
 @end
 
@@ -37,9 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    nCurrent = 0;
-    customRootArr = [NSMutableArray arrayWithCapacity:0];
-    customSecondaryArr = [NSMutableArray arrayWithCapacity:0];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -60,14 +49,26 @@
     [self clickEvent];
 }
 -(void)loadData{
-    
+    @weakify(self)
+    [self.vm getTeamTypeList:^(bool isSuccess) {
+        @strongify(self)
+        if (isSuccess) {
+            [self.teamView.leftTableView reloadData];
+            [self.teamView.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+            [self.teamView tableView:self.teamView.leftTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        }
+    }];
 }
 -(void)clickEvent{
+    @weakify(self)
     [[self.vm rac_signalForSelector:@selector(getBack)] subscribeNext:^(RACTuple * _Nullable x) {
+        @strongify(self)
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
-
+-(void)dealloc{
+    [_vm.categoryTeamArr removeAllObjects];
+}
 //-(void)showFooterView
 //{
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

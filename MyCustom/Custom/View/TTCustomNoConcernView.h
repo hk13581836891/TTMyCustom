@@ -1,5 +1,5 @@
 //
-//  TTNoConcernView.h
+//  TTCustomNoConcernView.h
 //  MyCustom
 //
 //  Created by houke on 2018/9/15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class TTConcernTeamViewModel;
 
-@interface TTNoConcernView : UICollectionView
+@interface TTCustomNoConcernView : UICollectionView
 @property (nonatomic, strong) TTConcernTeamViewModel *vm;
 @property (nonatomic, assign) NSInteger concernCount;
 @end

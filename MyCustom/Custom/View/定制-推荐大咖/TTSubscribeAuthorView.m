@@ -10,6 +10,7 @@
 #import "YTAnimation.h"
 #import "TTSubscribeAuthorViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "MasonryHeader.h"
 
 #define itemWidth 130
 #define itemHeight 158

@@ -1,5 +1,5 @@
 //
-//  TTConcernAllLeftTableViewCell.h
+//  TTConcernRightTableViewCell.h
 //  Tian_IOS
 //
 //  Created by houke on 2017/6/16.
@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class TTConcernTeamModel;
+@class TTConcernTeamViewModel;
 
-@interface TTConcernAllLeftTableViewCell : UITableViewCell
+@interface TTConcernRightTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) void(^refreshSecondaryData)(NSNumber *pid);
 @property (nonatomic, strong) TTConcernTeamModel *model;
-
-+(instancetype)leftCell:(UITableView *)tableview;
+@property (nonatomic, strong) TTConcernTeamViewModel *vm;
 
 @end

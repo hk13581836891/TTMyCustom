@@ -8,6 +8,7 @@
 
 #import "TTMySubscribeManageView.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTMySubscribeManageView ()
 @property (nonatomic, strong) UIButton *manageBtn;

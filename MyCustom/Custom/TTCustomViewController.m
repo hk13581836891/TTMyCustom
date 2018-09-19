@@ -42,6 +42,10 @@
     }
     return _conTeamVM;
 }
+-(void)loadView{
+    [super loadView];
+
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //订阅
@@ -61,6 +65,13 @@
                     [self.tableView reloadData];
                 }
             }];
+        }
+    }];
+    //关注的球队
+    [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
+        @strongify(self)
+        if (isSuccess) {
+            [self.tableView reloadData];
         }
     }];
 }
@@ -116,12 +127,6 @@
    
     //球队定制
     @weakify(self)
-    [self.conTeamVM getConcernTeamList:^(bool isSuccess) {
-        @strongify(self)
-        if (isSuccess) {
-            [self.tableView reloadData];
-        }
-    }];
     [self.conTeamVM getRecommendTeamDataList:^(bool isSuccess) {
         @strongify(self)
         if (isSuccess) {

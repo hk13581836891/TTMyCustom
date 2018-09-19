@@ -8,6 +8,7 @@
 
 #import "TTConcernTopView.h"
 #import "TTConcernTeamViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTConcernTopView ()
 

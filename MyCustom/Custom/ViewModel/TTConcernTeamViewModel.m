@@ -11,7 +11,7 @@
 
 @interface TTConcernTeamViewModel ()
 
-@property (nonatomic, strong) NSMutableArray *teamTypeArr;
+
 @property (nonatomic, strong) NSMutableArray *teamArr;
 @end
 
@@ -92,33 +92,19 @@
 }
 
 #pragma mark 获取球队类型id
--(void)getTeamTypeList
+-(void)getTeamTypeList:(void (^)(bool))finish
 {
     //    NSString *rootUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_root"];
     NSString *url = @"http://api.ttplus.cn/custom_news/root";
     [HttpTool httpPost:url params:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
-            NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
-            [self.teamTypeArr addObjectsFromArray:tempArr];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
--(void)getCategoryTeamList:(NSNumber *)categoryId finish:(void (^)(bool))finish{
-//    NSString *secondaryUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_secondary"];
-//    secondaryUrl = [NSString stringWithFormat:@"%@?pid=%@&userId=%@&pageNumber=1&pageSize=30",secondaryUrl,pid,USERID];
-    NSString *url = [NSString stringWithFormat:@"http://api.ttplus.cn/custom_news/secondary?pid=%@&userId=61&pageNumber=1&pageSize=100",categoryId];
-    [HttpTool httpPost:url params:nil success:^(id responseObject) {
-        if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
-            if (self.categoryTeamArr) {
-                [self.categoryTeamArr removeAllObjects];
+            if (self.teamTypeArr) {
+                [self.teamTypeArr removeAllObjects];
             }
-            
-            NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
-            [self.categoryTeamArr addObjectsFromArray:tempArr];
-            
+            if (self.concernTeamArr.count != 0) {
+                [self.teamTypeArr addObject:[TTConcernTeamModel objectWithKeyValues:@{@"name":@"我的", @"id":@(-1)}]];
+            }
+            [self.teamTypeArr addObjectsFromArray:[TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]]];
             finish(true);
         }else{
             finish(false);
@@ -126,6 +112,44 @@
     } failure:^(NSError *error) {
         finish(false);
     }];
+}
+#pragma mark 获取分类球队列表
+-(void)getCategoryTeamList:(NSNumber *)categoryId finish:(void (^)(bool))finish{
+//    NSString *secondaryUrl = [TTInitInterfaceManager getUrlWithKey:Init_app url:@"custom_secondary"];
+//    secondaryUrl = [NSString stringWithFormat:@"%@?pid=%@&userId=%@&pageNumber=1&pageSize=30",secondaryUrl,pid,USERID];
+    if (categoryId.intValue == -1) {
+        NSString *url = @"http://api.ttplus.cn/custom_news/follow_list?userId=61&pageNumber=1&pageSize=20";
+        [HttpTool httpPost:url params:nil success:^(id responseObject) {
+            if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+                if (self.categoryTeamArr) {
+                    [self.categoryTeamArr removeAllObjects];
+                }
+                [self.categoryTeamArr addObjectsFromArray:[TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]]];
+                finish(true);
+            }else{
+                finish(false);
+            }
+        } failure:^(NSError *error) {
+            finish(false);
+        }];
+    }else{
+        NSString *url = [NSString stringWithFormat:@"http://api.ttplus.cn/custom_news/secondary?pid=%@&userId=61&pageNumber=1&pageSize=100",categoryId];
+        [HttpTool httpPost:url params:nil success:^(id responseObject) {
+            if ([[responseObject objectForKey:@"type"] isEqualToString:@"success"]) {
+                if (self.categoryTeamArr) {
+                    [self.categoryTeamArr removeAllObjects];
+                }
+                NSArray *tempArr = [TTConcernTeamModel objectArrayWithKeyValuesArray:[responseObject objectForKey:@"content"]];
+                [self.categoryTeamArr addObjectsFromArray:tempArr];
+                
+                finish(true);
+            }else{
+                finish(false);
+            }
+        } failure:^(NSError *error) {
+            finish(false);
+        }];
+    }
 }
 #pragma mark 球队关注或取消关注
 -(void)concernCancelTeam:(NSNumber *)wordId status:(NSString *)status finish:(void (^)(bool))finish{

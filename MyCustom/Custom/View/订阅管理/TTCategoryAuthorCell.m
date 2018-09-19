@@ -8,6 +8,7 @@
 
 #import "TTCategoryAuthorCell.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTCategoryAuthorCell ()
 @property (nonatomic, strong) UIImageView *avatarImg;

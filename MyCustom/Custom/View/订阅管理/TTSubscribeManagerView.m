@@ -10,6 +10,7 @@
 #import "TTSubscribeTypeView.h"
 #import "TTSubscribeAuthorViewModel.h"
 #import "TTCategoryAuthorCell.h"
+#import "MasonryHeader.h"
 
 @interface TTSubscribeManagerView ()
 @property (nonatomic, strong) MainNavView *nav;

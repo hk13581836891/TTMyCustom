@@ -11,6 +11,7 @@
 #import "TTSubscribeAuthorViewModel.h"
 #import "TTSubscribeAuthorCell.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "MasonryHeader.h"
 
 @interface TTSubscribeTypeView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 

@@ -8,6 +8,7 @@
 
 #import "TTSubscribeNewsView.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTSubscribeNewsView ()<UICollectionViewDataSource>
 

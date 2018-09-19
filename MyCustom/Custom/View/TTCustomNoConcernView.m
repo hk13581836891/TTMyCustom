@@ -6,13 +6,14 @@
 //  Copyright © 2018年 houke. All rights reserved.
 //
 
-#import "TTNoConcernView.h"
+#import "TTCustomNoConcernView.h"
 #import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "MasonryHeader.h"
 
-@interface TTNoConcernView ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface TTCustomNoConcernView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @end
-@implementation TTNoConcernView
+@implementation TTCustomNoConcernView
 
 -(void)setVm:(TTConcernTeamViewModel *)vm{
     _vm = vm;

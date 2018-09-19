@@ -17,13 +17,19 @@
 		D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */; };
 		D34C5134214F95D800450968 /* back_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5132214F95D800450968 /* back_black@2x.png */; };
 		D34C5135214F95D800450968 /* back_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5133214F95D800450968 /* back_black@3x.png */; };
-		D35B8254214CEC1000D6ECD2 /* TTNoConcernView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */; };
+		D35B8254214CEC1000D6ECD2 /* TTCustomNoConcernView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B8253214CEC1000D6ECD2 /* TTCustomNoConcernView.m */; };
+		D379ECBF2151DD680029CF58 /* TTConcernTeamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECBD2151DD670029CF58 /* TTConcernTeamViewModel.m */; };
+		D379ECC12151DD7E0029CF58 /* TTConcernTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECC02151DD7E0029CF58 /* TTConcernTeamController.m */; };
+		D379ECC32151DD960029CF58 /* TTCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECC22151DD960029CF58 /* TTCustomViewController.m */; };
+		D379ECC62151DDAC0029CF58 /* TTCustomUnLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECC42151DDAB0029CF58 /* TTCustomUnLoginController.m */; };
+		D379ED792151E78D0029CF58 /* TTConcernLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ED732151E78D0029CF58 /* TTConcernLeftTableViewCell.m */; };
+		D379ED7A2151E78D0029CF58 /* TTConcernRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ED742151E78D0029CF58 /* TTConcernRightTableViewCell.m */; };
+		D379ED7B2151E78D0029CF58 /* TTConcernTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ED772151E78D0029CF58 /* TTConcernTeamView.m */; };
 		D398B0DD2148DACB00C0653F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DC2148DACB00C0653F /* AppDelegate.m */; };
 		D398B0E02148DACB00C0653F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0DF2148DACB00C0653F /* ViewController.m */; };
 		D398B0E52148DACE00C0653F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D398B0E42148DACE00C0653F /* Assets.xcassets */; };
 		D398B0E82148DACE00C0653F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D398B0E62148DACE00C0653F /* LaunchScreen.storyboard */; };
 		D398B0EB2148DACE00C0653F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0EA2148DACE00C0653F /* main.m */; };
-		D398B0F72148DAE100C0653F /* TTCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0F42148DAE000C0653F /* TTCustomViewController.m */; };
 		D398B1122148DBA400C0653F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B0FA2148DBA400C0653F /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		D398B1132148DBA400C0653F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1032148DBA400C0653F /* ViewController+MASAdditions.m */; };
 		D398B1142148DBA400C0653F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D398B1072148DBA400C0653F /* MASCompositeConstraint.m */; };
@@ -126,7 +132,6 @@
 		D3A5BBD9214A55C2000B4394 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBC3214A55C1000B4394 /* UIView+WebCacheOperation.m */; };
 		D3A5BBDA214A55C2000B4394 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBC4214A55C1000B4394 /* SDWebImageManager+MJ.m */; };
 		D3A5BBDB214A55C2000B4394 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A5BBC8214A55C1000B4394 /* UIButton+WebCache.m */; };
-		D3B5F49B214B57F900F4223A /* TTConcernTeamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F49A214B57F900F4223A /* TTConcernTeamViewModel.m */; };
 		D3B5F49E214B588B00F4223A /* TTConcernTeamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F49D214B588B00F4223A /* TTConcernTeamModel.m */; };
 		D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */; };
 		D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F4A9214BBC7500F4223A /* TTSubscribeNewsCell.m */; };
@@ -136,11 +141,7 @@
 		D3C9B07A2150D8FA00FB3867 /* TTMySubscribeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0792150D8FA00FB3867 /* TTMySubscribeView.m */; };
 		D3C9B07D2150D9B800FB3867 /* TTMySubscribeManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B07C2150D9B800FB3867 /* TTMySubscribeManageView.m */; };
 		D3C9B0842150F71900FB3867 /* UITableView+NoEstimatedHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0832150F71900FB3867 /* UITableView+NoEstimatedHeight.m */; };
-		D3C9B0872150FB1500FB3867 /* TTConcernTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0852150FB1400FB3867 /* TTConcernTeamController.m */; };
 		D3C9B08A2150FB4E00FB3867 /* NoEstimatedHeightUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0892150FB4E00FB3867 /* NoEstimatedHeightUITableView.m */; };
-		D3C9B0902150FC3300FB3867 /* TTConcernAllRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B08D2150FC3300FB3867 /* TTConcernAllRightTableViewCell.m */; };
-		D3C9B0912150FC3300FB3867 /* TTConcernAllLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B08E2150FC3300FB3867 /* TTConcernAllLeftTableViewCell.m */; };
-		D3C9B0942151038700FB3867 /* TTConcernTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9B0932151038700FB3867 /* TTConcernTeamView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,8 +164,21 @@
 		D34C512F214F93CF00450968 /* ColorContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorContants.h; sourceTree = "<group>"; };
 		D34C5132214F95D800450968 /* back_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@2x.png"; sourceTree = "<group>"; };
 		D34C5133214F95D800450968 /* back_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@3x.png"; sourceTree = "<group>"; };
-		D35B8252214CEC1000D6ECD2 /* TTNoConcernView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNoConcernView.h; sourceTree = "<group>"; };
-		D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNoConcernView.m; sourceTree = "<group>"; };
+		D35B8252214CEC1000D6ECD2 /* TTCustomNoConcernView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCustomNoConcernView.h; sourceTree = "<group>"; };
+		D35B8253214CEC1000D6ECD2 /* TTCustomNoConcernView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCustomNoConcernView.m; sourceTree = "<group>"; };
+		D379ECBD2151DD670029CF58 /* TTConcernTeamViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamViewModel.m; sourceTree = "<group>"; };
+		D379ECBE2151DD670029CF58 /* TTConcernTeamViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamViewModel.h; sourceTree = "<group>"; };
+		D379ECC02151DD7E0029CF58 /* TTConcernTeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamController.m; sourceTree = "<group>"; };
+		D379ECC22151DD960029CF58 /* TTCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCustomViewController.m; sourceTree = "<group>"; };
+		D379ECC42151DDAB0029CF58 /* TTCustomUnLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCustomUnLoginController.m; sourceTree = "<group>"; };
+		D379ECC52151DDAB0029CF58 /* TTCustomUnLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCustomUnLoginController.h; sourceTree = "<group>"; };
+		D379ED1F2151E2700029CF58 /* MasonryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryHeader.h; sourceTree = "<group>"; };
+		D379ED732151E78D0029CF58 /* TTConcernLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernLeftTableViewCell.m; sourceTree = "<group>"; };
+		D379ED742151E78D0029CF58 /* TTConcernRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernRightTableViewCell.m; sourceTree = "<group>"; };
+		D379ED752151E78D0029CF58 /* TTConcernTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamView.h; sourceTree = "<group>"; };
+		D379ED762151E78D0029CF58 /* TTConcernLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernLeftTableViewCell.h; sourceTree = "<group>"; };
+		D379ED772151E78D0029CF58 /* TTConcernTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamView.m; sourceTree = "<group>"; };
+		D379ED782151E78D0029CF58 /* TTConcernRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernRightTableViewCell.h; sourceTree = "<group>"; };
 		D398B0D82148DACB00C0653F /* MyCustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D398B0DB2148DACB00C0653F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D398B0DC2148DACB00C0653F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,7 +189,6 @@
 		D398B0E92148DACE00C0653F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D398B0EA2148DACE00C0653F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D398B0F22148DAE000C0653F /* TTCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCustomViewController.h; sourceTree = "<group>"; };
-		D398B0F42148DAE000C0653F /* TTCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCustomViewController.m; sourceTree = "<group>"; };
 		D398B0F92148DBA400C0653F /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		D398B0FA2148DBA400C0653F /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		D398B0FB2148DBA400C0653F /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -356,8 +369,6 @@
 		D3A5BBC7214A55C1000B4394 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		D3A5BBC8214A55C1000B4394 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		D3A5BBC9214A55C1000B4394 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		D3B5F499214B57F900F4223A /* TTConcernTeamViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamViewModel.h; sourceTree = "<group>"; };
-		D3B5F49A214B57F900F4223A /* TTConcernTeamViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamViewModel.m; sourceTree = "<group>"; };
 		D3B5F49C214B588B00F4223A /* TTConcernTeamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamModel.h; sourceTree = "<group>"; };
 		D3B5F49D214B588B00F4223A /* TTConcernTeamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamModel.m; sourceTree = "<group>"; };
 		D3B5F49F214B683E00F4223A /* UIView+InitExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+InitExtension.h"; sourceTree = "<group>"; };
@@ -376,16 +387,9 @@
 		D3C9B07C2150D9B800FB3867 /* TTMySubscribeManageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMySubscribeManageView.m; sourceTree = "<group>"; };
 		D3C9B0822150F71900FB3867 /* UITableView+NoEstimatedHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+NoEstimatedHeight.h"; sourceTree = "<group>"; };
 		D3C9B0832150F71900FB3867 /* UITableView+NoEstimatedHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NoEstimatedHeight.m"; sourceTree = "<group>"; };
-		D3C9B0852150FB1400FB3867 /* TTConcernTeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamController.m; sourceTree = "<group>"; };
 		D3C9B0862150FB1500FB3867 /* TTConcernTeamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamController.h; sourceTree = "<group>"; };
 		D3C9B0882150FB4D00FB3867 /* NoEstimatedHeightUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoEstimatedHeightUITableView.h; sourceTree = "<group>"; };
 		D3C9B0892150FB4E00FB3867 /* NoEstimatedHeightUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoEstimatedHeightUITableView.m; sourceTree = "<group>"; };
-		D3C9B08C2150FC3300FB3867 /* TTConcernAllRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernAllRightTableViewCell.h; sourceTree = "<group>"; };
-		D3C9B08D2150FC3300FB3867 /* TTConcernAllRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernAllRightTableViewCell.m; sourceTree = "<group>"; };
-		D3C9B08E2150FC3300FB3867 /* TTConcernAllLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernAllLeftTableViewCell.m; sourceTree = "<group>"; };
-		D3C9B08F2150FC3300FB3867 /* TTConcernAllLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConcernAllLeftTableViewCell.h; sourceTree = "<group>"; };
-		D3C9B0922151038700FB3867 /* TTConcernTeamView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConcernTeamView.h; sourceTree = "<group>"; };
-		D3C9B0932151038700FB3867 /* TTConcernTeamView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamView.m; sourceTree = "<group>"; };
 		DA3F2A63ACEF23FCA903CD26 /* Pods_MyCustom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCustom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AADB80FE8B90A68F8546CC /* Pods-MyCustom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCustom.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCustom/Pods-MyCustom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -452,6 +456,56 @@
 			path = "其他";
 			sourceTree = "<group>";
 		};
+		D379ED0C2151DE5A0029CF58 /* InitCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D379ED1F2151E2700029CF58 /* MasonryHeader.h */,
+				D398B2AC21490DC400C0653F /* UILabel+InitExtension.h */,
+				D398B2AD21490DC400C0653F /* UILabel+InitExtension.m */,
+				D398B2AF21490F6B00C0653F /* UIButton+InitExtension.h */,
+				D398B2B021490F6B00C0653F /* UIButton+InitExtension.m */,
+				D398B2F4214920C100C0653F /* UIImageView+InitExtension.h */,
+				D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */,
+				D3B5F49F214B683E00F4223A /* UIView+InitExtension.h */,
+				D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */,
+				D3C9B0822150F71900FB3867 /* UITableView+NoEstimatedHeight.h */,
+				D3C9B0832150F71900FB3867 /* UITableView+NoEstimatedHeight.m */,
+			);
+			path = InitCategory;
+			sourceTree = "<group>";
+		};
+		D379ED202151E4D40029CF58 /* 其他 */ = {
+			isa = PBXGroup;
+			children = (
+				D34C511B214F76FF00450968 /* RSA.h */,
+				D34C511A214F76FF00450968 /* RSA.m */,
+				D34C512F214F93CF00450968 /* ColorContants.h */,
+				D34C512E214F93CF00450968 /* StringContants.h */,
+				D34C5125214F8AEB00450968 /* MainNavView.h */,
+				D34C5126214F8AEB00450968 /* MainNavView.m */,
+				D34C5112214F71AB00450968 /* TimeTool.h */,
+				D34C5111214F71AB00450968 /* TimeTool.m */,
+				D3A5BB9C214A4B5C000B4394 /* HttpTool.h */,
+				D3A5BB9B214A4B5B000B4394 /* HttpTool.m */,
+				D3C9B0882150FB4D00FB3867 /* NoEstimatedHeightUITableView.h */,
+				D3C9B0892150FB4E00FB3867 /* NoEstimatedHeightUITableView.m */,
+			);
+			path = "其他";
+			sourceTree = "<group>";
+		};
+		D379ED722151E78D0029CF58 /* 球队全部 */ = {
+			isa = PBXGroup;
+			children = (
+				D379ED732151E78D0029CF58 /* TTConcernLeftTableViewCell.m */,
+				D379ED742151E78D0029CF58 /* TTConcernRightTableViewCell.m */,
+				D379ED752151E78D0029CF58 /* TTConcernTeamView.h */,
+				D379ED762151E78D0029CF58 /* TTConcernLeftTableViewCell.h */,
+				D379ED772151E78D0029CF58 /* TTConcernTeamView.m */,
+				D379ED782151E78D0029CF58 /* TTConcernRightTableViewCell.h */,
+			);
+			path = "球队全部";
+			sourceTree = "<group>";
+		};
 		D398B0CF2148DACB00C0653F = {
 			isa = PBXGroup;
 			children = (
@@ -493,13 +547,15 @@
 			isa = PBXGroup;
 			children = (
 				D398B0F22148DAE000C0653F /* TTCustomViewController.h */,
-				D398B0F42148DAE000C0653F /* TTCustomViewController.m */,
+				D379ECC22151DD960029CF58 /* TTCustomViewController.m */,
 				D3C9B0752150D8D300FB3867 /* TTMySubscribeController.h */,
 				D3C9B0762150D8D300FB3867 /* TTMySubscribeController.m */,
 				D34C5122214F87F900450968 /* TTSubscribeManagerController.h */,
 				D34C5123214F87F900450968 /* TTSubscribeManagerController.m */,
 				D3C9B0862150FB1500FB3867 /* TTConcernTeamController.h */,
-				D3C9B0852150FB1400FB3867 /* TTConcernTeamController.m */,
+				D379ECC02151DD7E0029CF58 /* TTConcernTeamController.m */,
+				D379ECC52151DDAB0029CF58 /* TTCustomUnLoginController.h */,
+				D379ECC42151DDAB0029CF58 /* TTCustomUnLoginController.m */,
 				D398B0F32148DAE000C0653F /* ViewModel */,
 				D398B0F52148DAE000C0653F /* Model */,
 				D398B0F62148DAE000C0653F /* View */,
@@ -512,8 +568,8 @@
 			children = (
 				D3A5BBA1214A4C96000B4394 /* TTSubscribeAuthorViewModel.h */,
 				D3A5BBA2214A4C96000B4394 /* TTSubscribeAuthorViewModel.m */,
-				D3B5F499214B57F900F4223A /* TTConcernTeamViewModel.h */,
-				D3B5F49A214B57F900F4223A /* TTConcernTeamViewModel.m */,
+				D379ECBE2151DD670029CF58 /* TTConcernTeamViewModel.h */,
+				D379ECBD2151DD670029CF58 /* TTConcernTeamViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -534,7 +590,7 @@
 			children = (
 				D398B1262148DE7300C0653F /* TTSetCusomView.h */,
 				D398B1272148DE7300C0653F /* TTSetCusomView.m */,
-				D3C9B08B2150FC1600FB3867 /* 球队全部 */,
+				D379ED722151E78D0029CF58 /* 球队全部 */,
 				D3C9B07E2150F44A00FB3867 /* 定制-我的订阅 */,
 				D3C9B0742150D5B600FB3867 /* 我的订阅 */,
 				D34C511F214F86AD00450968 /* 订阅管理 */,
@@ -543,8 +599,8 @@
 				D398B1242148DE3800C0653F /* TTConcernTopView.m */,
 				D398B2A12148E48B00C0653F /* TTNoConcernCell.h */,
 				D398B2A22148E48B00C0653F /* TTNoConcernCell.m */,
-				D35B8252214CEC1000D6ECD2 /* TTNoConcernView.h */,
-				D35B8253214CEC1000D6ECD2 /* TTNoConcernView.m */,
+				D35B8252214CEC1000D6ECD2 /* TTCustomNoConcernView.h */,
+				D35B8253214CEC1000D6ECD2 /* TTCustomNoConcernView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -683,34 +739,14 @@
 		D398B2A42148E6CE00C0653F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				D34C512F214F93CF00450968 /* ColorContants.h */,
-				D34C512E214F93CF00450968 /* StringContants.h */,
-				D34C5125214F8AEB00450968 /* MainNavView.h */,
-				D34C5126214F8AEB00450968 /* MainNavView.m */,
-				D34C5112214F71AB00450968 /* TimeTool.h */,
-				D34C5111214F71AB00450968 /* TimeTool.m */,
-				D3A5BB9C214A4B5C000B4394 /* HttpTool.h */,
-				D3A5BB9B214A4B5B000B4394 /* HttpTool.m */,
+				D379ED202151E4D40029CF58 /* 其他 */,
+				D379ED0C2151DE5A0029CF58 /* InitCategory */,
 				D3A5BA7A214A3086000B4394 /* YTAnimation.h */,
 				D3A5BA7B214A3086000B4394 /* YTAnimation.m */,
 				D398B2A52148E6EE00C0653F /* ColorDefine.h */,
 				D398B2A62148E76B00C0653F /* MyCustomPrefix.pch */,
-				D398B2AC21490DC400C0653F /* UILabel+InitExtension.h */,
-				D398B2AD21490DC400C0653F /* UILabel+InitExtension.m */,
-				D398B2AF21490F6B00C0653F /* UIButton+InitExtension.h */,
-				D398B2B021490F6B00C0653F /* UIButton+InitExtension.m */,
-				D398B2F4214920C100C0653F /* UIImageView+InitExtension.h */,
-				D398B2F5214920C100C0653F /* UIImageView+InitExtension.m */,
-				D3B5F49F214B683E00F4223A /* UIView+InitExtension.h */,
-				D3B5F4A0214B683F00F4223A /* UIView+InitExtension.m */,
-				D3C9B0822150F71900FB3867 /* UITableView+NoEstimatedHeight.h */,
-				D3C9B0832150F71900FB3867 /* UITableView+NoEstimatedHeight.m */,
-				D3C9B0882150FB4D00FB3867 /* NoEstimatedHeightUITableView.h */,
-				D3C9B0892150FB4E00FB3867 /* NoEstimatedHeightUITableView.m */,
 				D34C5117214F767E00450968 /* EncryptTool.h */,
 				D34C5118214F767E00450968 /* EncryptTool.m */,
-				D34C511B214F76FF00450968 /* RSA.h */,
-				D34C511A214F76FF00450968 /* RSA.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -829,19 +865,6 @@
 				D3B5F4AB214BBD0A00F4223A /* TTSubscribeNewsView.m */,
 			);
 			path = "定制-我的订阅";
-			sourceTree = "<group>";
-		};
-		D3C9B08B2150FC1600FB3867 /* 球队全部 */ = {
-			isa = PBXGroup;
-			children = (
-				D3C9B08F2150FC3300FB3867 /* TTConcernAllLeftTableViewCell.h */,
-				D3C9B08E2150FC3300FB3867 /* TTConcernAllLeftTableViewCell.m */,
-				D3C9B08C2150FC3300FB3867 /* TTConcernAllRightTableViewCell.h */,
-				D3C9B08D2150FC3300FB3867 /* TTConcernAllRightTableViewCell.m */,
-				D3C9B0922151038700FB3867 /* TTConcernTeamView.h */,
-				D3C9B0932151038700FB3867 /* TTConcernTeamView.m */,
-			);
-			path = "球队全部";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1010,18 +1033,20 @@
 			files = (
 				D3B5F4AA214BBC7500F4223A /* TTSubscribeNewsCell.m in Sources */,
 				D398B2962148E0C100C0653F /* MJMember.m in Sources */,
+				D379ED7B2151E78D0029CF58 /* TTConcernTeamView.m in Sources */,
 				D3A5BBCC214A55C1000B4394 /* SDWebImageManager.m in Sources */,
 				D3A5BBDA214A55C2000B4394 /* SDWebImageManager+MJ.m in Sources */,
 				D3A5BBCA214A55C1000B4394 /* UIImage+WebP.m in Sources */,
 				D398B15D2148E09700C0653F /* AFURLRequestSerialization.m in Sources */,
 				D3A5BB9D214A4B5D000B4394 /* HttpTool.m in Sources */,
+				D379ED7A2151E78D0029CF58 /* TTConcernRightTableViewCell.m in Sources */,
 				D3A5BBA3214A4C96000B4394 /* TTSubscribeAuthorViewModel.m in Sources */,
 				D398B1512148E09700C0653F /* UIProgressView+AFNetworking.m in Sources */,
 				D3A5BBD9214A55C2000B4394 /* UIView+WebCacheOperation.m in Sources */,
 				D398B11A2148DBA400C0653F /* MASViewConstraint.m in Sources */,
+				D379ECC12151DD7E0029CF58 /* TTConcernTeamController.m in Sources */,
 				D3A5BBA0214A4C35000B4394 /* TTSubscribeAuthorModel.m in Sources */,
 				D398B1592148E09700C0653F /* AFImageDownloader.m in Sources */,
-				D3C9B0912150FC3300FB3867 /* TTConcernAllLeftTableViewCell.m in Sources */,
 				D3A5BBD6214A55C1000B4394 /* NSData+ImageContentType.m in Sources */,
 				D398B1522148E09700C0653F /* UIRefreshControl+AFNetworking.m in Sources */,
 				D3A5BBCF214A55C1000B4394 /* SDWebImageDownloader.m in Sources */,
@@ -1035,7 +1060,8 @@
 				D3A5BBD0214A55C1000B4394 /* UIImage+GIF.m in Sources */,
 				D398B15B2148E09700C0653F /* AFHTTPSessionManager.m in Sources */,
 				D398B1532148E09700C0653F /* AFNetworkActivityIndicatorManager.m in Sources */,
-				D3C9B0872150FB1500FB3867 /* TTConcernTeamController.m in Sources */,
+				D379ECBF2151DD680029CF58 /* TTConcernTeamViewModel.m in Sources */,
+				D379ECC62151DDAC0029CF58 /* TTCustomUnLoginController.m in Sources */,
 				D398B2A32148E48B00C0653F /* TTNoConcernCell.m in Sources */,
 				D3C9B07D2150D9B800FB3867 /* TTMySubscribeManageView.m in Sources */,
 				D3A5BBCE214A55C1000B4394 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1043,8 +1069,6 @@
 				D398B1282148DE7300C0653F /* TTSetCusomView.m in Sources */,
 				D398B1552148E09700C0653F /* UIButton+AFNetworking.m in Sources */,
 				D3A5BBD7214A55C1000B4394 /* UIImageView+WebCache.m in Sources */,
-				D3B5F49B214B57F900F4223A /* TTConcernTeamViewModel.m in Sources */,
-				D398B0F72148DAE100C0653F /* TTCustomViewController.m in Sources */,
 				D3A5BBCB214A55C1000B4394 /* MKAnnotationView+WebCache.m in Sources */,
 				D398B29F2148E0C200C0653F /* MJFoundation.m in Sources */,
 				D398B1542148E09700C0653F /* UIImageView+AFNetworking.m in Sources */,
@@ -1053,9 +1077,10 @@
 				D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */,
 				D398B1172148DBA400C0653F /* NSArray+MASAdditions.m in Sources */,
 				D398B29A2148E0C100C0653F /* MJConst.m in Sources */,
+				D379ECC32151DD960029CF58 /* TTCustomViewController.m in Sources */,
 				D3B5F4A1214B683F00F4223A /* UIView+InitExtension.m in Sources */,
 				D398B15C2148E09700C0653F /* AFURLSessionManager.m in Sources */,
-				D35B8254214CEC1000D6ECD2 /* TTNoConcernView.m in Sources */,
+				D35B8254214CEC1000D6ECD2 /* TTCustomNoConcernView.m in Sources */,
 				D3A5BBCD214A55C1000B4394 /* SDWebImageDecoder.m in Sources */,
 				D3C9B08A2150FB4E00FB3867 /* NoEstimatedHeightUITableView.m in Sources */,
 				D398B2982148E0C100C0653F /* MJIvar.m in Sources */,
@@ -1073,7 +1098,7 @@
 				D398B15E2148E09700C0653F /* AFNetworkReachabilityManager.m in Sources */,
 				D3C9B0772150D8D300FB3867 /* TTMySubscribeController.m in Sources */,
 				D398B1182148DBA400C0653F /* View+MASAdditions.m in Sources */,
-				D3C9B0902150FC3300FB3867 /* TTConcernAllRightTableViewCell.m in Sources */,
+				D379ED792151E78D0029CF58 /* TTConcernLeftTableViewCell.m in Sources */,
 				D34C511C214F770000450968 /* RSA.m in Sources */,
 				D3C9B07A2150D8FA00FB3867 /* TTMySubscribeView.m in Sources */,
 				D398B1152148DBA400C0653F /* MASConstraintMaker.m in Sources */,
@@ -1099,7 +1124,6 @@
 				D3A5BBD2214A55C1000B4394 /* SDWebImageCompat.m in Sources */,
 				D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */,
 				D398B15F2148E09700C0653F /* AFSecurityPolicy.m in Sources */,
-				D3C9B0942151038700FB3867 /* TTConcernTeamView.m in Sources */,
 				D398B0DD2148DACB00C0653F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import "TTMySubscribeView.h"
 #import "MainNavView.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTMySubscribeView ()
 @property (nonatomic, strong) MainNavView *nav;

@@ -10,13 +10,11 @@
 #define MyCustomPrefix_pch
 
 #import "ColorDefine.h"
-#define MAS_SHORTHAND
-#define MAS_SHORTHAND_GLOBALS
+
 #import "UILabel+InitExtension.h"
 #import "UIButton+InitExtension.h"
 #import "UIImageView+InitExtension.h"
 #import "UIView+InitExtension.h"
-#import "Masonry.h"
 #import "HttpTool.h"
 #import "EncryptTool.h"
 #import "MainNavView.h"

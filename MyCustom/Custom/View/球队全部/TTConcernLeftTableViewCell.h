@@ -1,5 +1,5 @@
 //
-//  TTConcernAllRightTableViewCell.h
+//  TTConcernLeftTableViewCell.h
 //  Tian_IOS
 //
 //  Created by houke on 2017/6/16.
@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class TTConcernTeamModel;
+@class TTConcernTeamViewModel;
 
-@interface TTConcernAllRightTableViewCell : UITableViewCell
+@interface TTConcernLeftTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) TTConcernTeamModel *model;
-@property (nonatomic, strong) void (^addRecommendFail)(NSString *error);
-+(instancetype)rightCell:(UITableView *)tableview;
+@property (nonatomic, strong) TTConcernTeamViewModel *vm;
+@property (nonatomic, strong) UILabel *textLab;
+
 @end

@@ -9,6 +9,7 @@
 #import "TTSubscribeNewsCell.h"
 #import "TTSubscribeNewsView.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTSubscribeNewsCell ()
 

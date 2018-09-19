@@ -8,11 +8,14 @@
 
 #import "TTConcernTeamView.h"
 #import "TTConcernTeamViewModel.h"
+#import "TTConcernLeftTableViewCell.h"
+#import "TTConcernRightTableViewCell.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "MasonryHeader.h"
 
 @interface TTConcernTeamView ()
 @property (nonatomic, strong) MainNavView * nav;
-@property (nonatomic, strong) NoEstimatedHeightUITableView *leftTableView;
-@property (nonatomic, strong) NoEstimatedHeightUITableView *rightTableView;
+
 @end
 @implementation TTConcernTeamView
 
@@ -35,20 +38,104 @@
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     _leftTableView.showsVerticalScrollIndicator = NO;
+    _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _leftTableView.backgroundColor = HEXCOLOR(0xefefef);
     _rightTableView.delegate = self;
-    _rightTableView.delegate = self;
+    _rightTableView.dataSource = self;
     _rightTableView.showsVerticalScrollIndicator = NO;
+    _rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _rightTableView.backgroundColor = [UIColor whiteColor];
+    
+    
+    [_leftTableView registerClass:[TTConcernLeftTableViewCell class] forCellReuseIdentifier:NSStringFromClass([TTConcernLeftTableViewCell class])];
+    [_rightTableView registerClass:[TTConcernRightTableViewCell class] forCellReuseIdentifier:NSStringFromClass([TTConcernRightTableViewCell class])];
+    
 }
 #pragma mark tableView datasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger count;
-//    if (tableView == leftTableView) {
-//        count = customRootArr.count;
-//    }else{
-//        count = customSecondaryArr.count+1;
-//    }
-    return 0;
+    if (tableView == _leftTableView) {
+        return _vm.teamTypeArr.count;
+    }else{
+        return _vm.categoryTeamArr.count;
+    }
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _leftTableView) {
+        return 45;
+    }else{
+        return 65;
+    }
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _leftTableView) {
+        TTConcernLeftTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTConcernLeftTableViewCell class]) forIndexPath:indexPath];
+        cell.vm = _vm;
+        cell.model = _vm.teamTypeArr[indexPath.row];
+        
+        return cell;
+    }else{
+//        if (indexPath.row == customSecondaryArr.count) {
+//            static NSString *ID  = @"labelId";
+//            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//            if (!cell) {
+//                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+//            }
+//            UILabel *label = [cell.contentView viewWithTag:10];
+//            if (!label) {
+//                label =[[UILabel alloc] init];
+//                label.tag = 10;
+//                label.frame = CGRectMake(0, 15, 250, 12);
+//                label.textAlignment = NSTextAlignmentCenter;
+//                label.text = @"已全部加载完毕";
+//                label.textColor = HEXCOLOR(0x88888888);
+//                label.font = PingFangSC_Regular(12);
+//                [cell.contentView addSubview:label];
+//            }
+//            if (customSecondaryArr.count == 0) {
+//                label.hidden = YES;
+//            }else{
+//                label.hidden = NO;
+//            }
+//            return cell;
+//
+//        }else{
+//            TTConcernAllRightTableViewCell * cell = [TTConcernAllRightTableViewCell rightCell:tableView];
+//
+//            cell.model = customSecondaryArr[indexPath.row];
+//            return cell;
+//        }
+        TTConcernRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTConcernRightTableViewCell class]) forIndexPath:indexPath];
+        cell.model = _vm.categoryTeamArr[indexPath.row];
+        cell.vm = _vm;
+        return cell;
+        
+    }
+    return nil;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (tableView == _leftTableView) {
+        TTConcernLeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.textLab.textColor = HEXCOLOR(0xf33a28);
+        TTConcernTeamModel *model = _vm.teamTypeArr[indexPath.row];
+        @weakify(self)
+        [_vm getCategoryTeamList:model.ID finish:^(bool isSuccess) {
+            @strongify(self)
+            if (isSuccess) {
+                [self.rightTableView reloadData];
+            }
+        }];
+    }
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView == _leftTableView) {
+        TTConcernLeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.textLab.textColor = HEXCOLOR(0x444444);
+    }
 }
 /*
 
@@ -92,75 +179,8 @@
  return footerView;
  }
  
- -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
- {
- CGFloat height;
- if (tableView == leftTableView) {
- height = 45;
- }else
- {
- height = 65;
- }
- 
- return height;
- }
- 
- -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (tableView == leftTableView) {
- TTConcernAllLeftTableViewCell * cell = [TTConcernAllLeftTableViewCell leftCell:tableView];
- cell.model = customRootArr[indexPath.row];
  
  
- 
- //默认选中第一个 cell
- if (nCurrent ==0) {
- nCurrent++;
- 
- 
- NSInteger selectedIndex = 0;
- NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
- [leftTableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
- }
- 
- 
- return cell;
- }else{
- if (indexPath.row == customSecondaryArr.count) {
- static NSString *ID  = @"labelId";
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
- if (!cell) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
- }
- UILabel *label = [cell.contentView viewWithTag:10];
- if (!label) {
- label =[[UILabel alloc] init];
- label.tag = 10;
- label.frame = CGRectMake(0, 15, 250, 12);
- label.textAlignment = NSTextAlignmentCenter;
- label.text = @"已全部加载完毕";
- label.textColor = HEXCOLOR(0x88888888);
- label.font = PingFangSC_Regular(12);
- [cell.contentView addSubview:label];
- }
- if (customSecondaryArr.count == 0) {
- label.hidden = YES;
- }else{
- label.hidden = NO;
- }
- return cell;
- 
- }else{
- TTConcernAllRightTableViewCell * cell = [TTConcernAllRightTableViewCell rightCell:tableView];
- 
- cell.model = customSecondaryArr[indexPath.row];
- return cell;
- }
- 
- 
- }
- return nil;
- }
  
  -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
  {

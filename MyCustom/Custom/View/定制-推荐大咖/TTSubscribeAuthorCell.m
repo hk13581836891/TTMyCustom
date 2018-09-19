@@ -9,6 +9,7 @@
 #import "TTSubscribeAuthorCell.h"
 #import "TTSubscribeAuthorView.h"
 #import "TTSubscribeAuthorViewModel.h"
+#import "MasonryHeader.h"
 
 @interface TTSubscribeAuthorCell ()
 

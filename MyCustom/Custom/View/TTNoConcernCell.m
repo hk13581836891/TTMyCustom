@@ -7,17 +7,16 @@
 //
 
 #import "TTNoConcernCell.h"
-#import "TTNoConcernView.h"
+#import "TTCustomNoConcernView.h"
 #import "TTConcernTeamViewModel.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "MasonryHeader.h"
 
-//#define itemW (UIScreen.mainScreen.bounds.size.width - 20 *2 - 26 *3)/4
-//#define itemH itemW + 6+ 16
 @interface TTNoConcernCell ()
 
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UIButton *finishBtn;
-@property (nonatomic, strong) TTNoConcernView *teamView;
+@property (nonatomic, strong) TTCustomNoConcernView *teamView;
 @end
 
 @implementation TTNoConcernCell
@@ -51,9 +50,9 @@
     }
     return _finishBtn;
 }
--(TTNoConcernView *)teamView{
+-(TTCustomNoConcernView *)teamView{
     if (!_teamView) {
-        _teamView = [TTNoConcernView new];
+        _teamView = [TTCustomNoConcernView new];
         @weakify(self)
         [[_teamView rac_valuesForKeyPath:@"concernCount" observer:self] subscribeNext:^(id _Nullable x) {
             @strongify(self)

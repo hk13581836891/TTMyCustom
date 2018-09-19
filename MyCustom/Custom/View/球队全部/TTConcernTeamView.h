@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoEstimatedHeightUITableView.h"
 @class TTConcernTeamViewModel;
+
 @interface TTConcernTeamView : UIView<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) TTConcernTeamViewModel *vm;
+
+@property (nonatomic, strong) NoEstimatedHeightUITableView *leftTableView;
+@property (nonatomic, strong) NoEstimatedHeightUITableView *rightTableView;
 @end
