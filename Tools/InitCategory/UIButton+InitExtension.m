@@ -7,7 +7,6 @@
 //
 
 #import "UIButton+InitExtension.h"
-#import "TTConcernTopView.h"
 
 @implementation UIButton (InitExtension)
 

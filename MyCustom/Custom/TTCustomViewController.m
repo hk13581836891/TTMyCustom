@@ -18,6 +18,7 @@
 #import "TTSubscribeManagerController.h"
 #import "TTMySubscribeController.h"
 #import "TTConcernTeamController.h"
+#import "TTCustomCoverView.h"
 
 @interface TTCustomViewController ()
 
@@ -75,11 +76,20 @@
         }
     }];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    UIView *view = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    view.backgroundColor = UIColor.yellowColor;
+    view.alpha = 0.8;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareTableView];
     [self reloadData];
     [self clickEvent];
+//    TTCustomCoverView
+  
 }
 -(void)clickEvent{
     //订阅

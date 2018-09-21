@@ -17,6 +17,7 @@
 		D34C512D214F8EF200450968 /* TTSubscribeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C512C214F8EF200450968 /* TTSubscribeManagerView.m */; };
 		D34C5134214F95D800450968 /* back_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5132214F95D800450968 /* back_black@2x.png */; };
 		D34C5135214F95D800450968 /* back_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D34C5133214F95D800450968 /* back_black@3x.png */; };
+		D357DBE02154E259001E30C5 /* TTCustomCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D357DBDF2154E259001E30C5 /* TTCustomCoverView.m */; };
 		D35B8254214CEC1000D6ECD2 /* TTCustomNoConcernView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B8253214CEC1000D6ECD2 /* TTCustomNoConcernView.m */; };
 		D379ECBF2151DD680029CF58 /* TTConcernTeamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECBD2151DD670029CF58 /* TTConcernTeamViewModel.m */; };
 		D379ECC12151DD7E0029CF58 /* TTConcernTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D379ECC02151DD7E0029CF58 /* TTConcernTeamController.m */; };
@@ -164,6 +165,8 @@
 		D34C512F214F93CF00450968 /* ColorContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorContants.h; sourceTree = "<group>"; };
 		D34C5132214F95D800450968 /* back_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@2x.png"; sourceTree = "<group>"; };
 		D34C5133214F95D800450968 /* back_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@3x.png"; sourceTree = "<group>"; };
+		D357DBDE2154E258001E30C5 /* TTCustomCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCustomCoverView.h; path = MyCustom/TTCustomCoverView.h; sourceTree = SOURCE_ROOT; };
+		D357DBDF2154E259001E30C5 /* TTCustomCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCustomCoverView.m; path = MyCustom/TTCustomCoverView.m; sourceTree = SOURCE_ROOT; };
 		D35B8252214CEC1000D6ECD2 /* TTCustomNoConcernView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCustomNoConcernView.h; sourceTree = "<group>"; };
 		D35B8253214CEC1000D6ECD2 /* TTCustomNoConcernView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCustomNoConcernView.m; sourceTree = "<group>"; };
 		D379ECBD2151DD670029CF58 /* TTConcernTeamViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTConcernTeamViewModel.m; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 		D398B0F12148DAE000C0653F /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				D357DBDE2154E258001E30C5 /* TTCustomCoverView.h */,
+				D357DBDF2154E259001E30C5 /* TTCustomCoverView.m */,
 				D398B0F22148DAE000C0653F /* TTCustomViewController.h */,
 				D379ECC22151DD960029CF58 /* TTCustomViewController.m */,
 				D3C9B0752150D8D300FB3867 /* TTMySubscribeController.h */,
@@ -1120,6 +1125,7 @@
 				D398B29B2148E0C100C0653F /* MJTypeEncoding.m in Sources */,
 				D398B29C2148E0C200C0653F /* NSObject+MJCoding.m in Sources */,
 				D3A5BBD8214A55C2000B4394 /* UIImageView+FadeInFadeOut.m in Sources */,
+				D357DBE02154E259001E30C5 /* TTCustomCoverView.m in Sources */,
 				D34C5113214F71AB00450968 /* TimeTool.m in Sources */,
 				D3A5BBD2214A55C1000B4394 /* SDWebImageCompat.m in Sources */,
 				D3B5F4AD214BBD0A00F4223A /* TTSubscribeNewsView.m in Sources */,
