@@ -40,6 +40,7 @@
 		D31B9B792159DB0600164E8A /* TTMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B9B782159DB0600164E8A /* TTMineController.m */; };
 		D31B9B7F2159DC1400164E8A /* TTMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B9B7E2159DC1400164E8A /* TTMineHeaderView.m */; };
 		D31B9B822159DF4A00164E8A /* TTMineHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31B9B812159DF4A00164E8A /* TTMineHeaderButton.m */; };
+		D32C1D19215A18E800944AFF /* TTMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C1D18215A18E800944AFF /* TTMineCell.m */; };
 		D34C5113214F71AB00450968 /* TimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5111214F71AB00450968 /* TimeTool.m */; };
 		D34C5119214F767E00450968 /* EncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C5118214F767E00450968 /* EncryptTool.m */; };
 		D34C511C214F770000450968 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C511A214F76FF00450968 /* RSA.m */; };
@@ -215,6 +216,8 @@
 		D31B9B7E2159DC1400164E8A /* TTMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMineHeaderView.m; sourceTree = "<group>"; };
 		D31B9B802159DF4A00164E8A /* TTMineHeaderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMineHeaderButton.h; sourceTree = "<group>"; };
 		D31B9B812159DF4A00164E8A /* TTMineHeaderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMineHeaderButton.m; sourceTree = "<group>"; };
+		D32C1D17215A18E800944AFF /* TTMineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMineCell.h; sourceTree = "<group>"; };
+		D32C1D18215A18E800944AFF /* TTMineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMineCell.m; sourceTree = "<group>"; };
 		D34C5111214F71AB00450968 /* TimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTool.m; sourceTree = "<group>"; };
 		D34C5112214F71AB00450968 /* TimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTool.h; sourceTree = "<group>"; };
 		D34C5117214F767E00450968 /* EncryptTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncryptTool.h; sourceTree = "<group>"; };
@@ -558,6 +561,16 @@
 		D31B9B7C2159DB5A00164E8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D32C1D16215A18B900944AFF /* TableHeaderView */,
+				D32C1D17215A18E800944AFF /* TTMineCell.h */,
+				D32C1D18215A18E800944AFF /* TTMineCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D32C1D16215A18B900944AFF /* TableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
 				D31B9B7D2159DC1400164E8A /* TTMineHeaderView.h */,
 				D31B9B7E2159DC1400164E8A /* TTMineHeaderView.m */,
 				D31B9B802159DF4A00164E8A /* TTMineHeaderButton.h */,
@@ -565,7 +578,7 @@
 				D31B53B02159E19800E61F6D /* TTMineCoinButton.h */,
 				D31B53B12159E19800E61F6D /* TTMineCoinButton.m */,
 			);
-			path = View;
+			path = TableHeaderView;
 			sourceTree = "<group>";
 		};
 		D34C511F214F86AD00450968 /* 订阅管理 */ = {
@@ -1228,6 +1241,7 @@
 				D398B1592148E09700C0653F /* AFImageDownloader.m in Sources */,
 				D3A5BBD6214A55C1000B4394 /* NSData+ImageContentType.m in Sources */,
 				D398B1522148E09700C0653F /* UIRefreshControl+AFNetworking.m in Sources */,
+				D32C1D19215A18E800944AFF /* TTMineCell.m in Sources */,
 				D3A5BBCF214A55C1000B4394 /* SDWebImageDownloader.m in Sources */,
 				D398B2972148E0C100C0653F /* NSObject+MJKeyValue.m in Sources */,
 				D398B2A02148E0C200C0653F /* NSObject+MJMember.m in Sources */,

@@ -67,7 +67,7 @@
 }
 -(UILabel *)lvLabel{
     if (!_lvLabel) {
-        _lvLabel = [[UILabel alloc] initWithText:@"LV6:1100 / 1500" textColor:HEXCOLOR(0x999999) font:[UIFont fontWithName:([[[UIDevice currentDevice]systemVersion] floatValue] < 9.00)?@"Heiti SC":@"Arial-BoldMT" size:(12)]];
+        _lvLabel = [[UILabel alloc] initWithText:@"LV6:1100 / 1500" textColor:HEXCOLOR(0x999999) font:Arial_BoldMT(12)];
     }
     return _lvLabel;
 }
@@ -79,31 +79,31 @@
 }
 -(TTMineHeaderButton *)topicBtn{
     if (!_topicBtn) {
-        _topicBtn = [TTMineHeaderButton new];_topicBtn.backgroundColor = UIColor.redColor;
+        _topicBtn = [[TTMineHeaderButton alloc] initWithTitle:@"关注话题"];
     }
     return _topicBtn;
 }
 -(TTMineHeaderButton *)commentBtn{
     if (!_commentBtn) {
-        _commentBtn = [TTMineHeaderButton new];_commentBtn.backgroundColor = UIColor.yellowColor;
+        _commentBtn = [[TTMineHeaderButton alloc] initWithTitle:@"我的评论"];
     }
     return _commentBtn;
 }
 -(TTMineHeaderButton *)likeBtn{
     if (!_likeBtn) {
-        _likeBtn = [TTMineHeaderButton new];_likeBtn.backgroundColor = UIColor.purpleColor;
+        _likeBtn = [[TTMineHeaderButton alloc] initWithTitle:@"我的收藏"];
     }
     return _likeBtn;
 }
 -(TTMineCoinButton *)coinBtn{
     if (!_coinBtn) {
-        _coinBtn = [TTMineCoinButton new];_coinBtn.backgroundColor = UIColor.purpleColor;
+        _coinBtn = [[TTMineCoinButton alloc] initWithImage:@"my_bg_jinbi" title:@"金币"];
     }
     return _coinBtn;
 }
 -(TTMineCoinButton *)tCoinBtn{
     if (!_tCoinBtn) {
-        _tCoinBtn = [TTMineCoinButton new];_tCoinBtn.backgroundColor = UIColor.yellowColor;
+        _tCoinBtn = [[TTMineCoinButton alloc] initWithImage:@"my_bg_tbi" title:@"T币"];
     }
     return _tCoinBtn;
 }

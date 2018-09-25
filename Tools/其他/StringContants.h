@@ -177,6 +177,8 @@ int	sysctl(int *, u_int, void *, size_t *, void *, size_t);
 #define PingFangSC_Regular(Size) [UIFont fontWithName:([[[UIDevice currentDevice]systemVersion] floatValue] < 9.00)?@"Heiti SC":@"PingFangSC-Regular" size:(Size)]
 #define PingFangSC_Medium(Size) [UIFont fontWithName:([[[UIDevice currentDevice]systemVersion] floatValue] < 9.00)?@"Heiti SC":@"PingFangSC-Medium" size:(Size)]
 #define PingFangSC_Semibold(Size) [UIFont fontWithName:([[[UIDevice currentDevice]systemVersion] floatValue] < 9.00)?@"Heiti SC":@"PingFangSC-Semibold" size:(Size)]
+#define Arial_BoldMT(Size) [UIFont fontWithName:([[[UIDevice currentDevice]systemVersion] floatValue] < 9.00)?@"Heiti SC":@"Arial-BoldMT" size:(Size)]
+
 
 //height and width
 #define HEXCOLOR(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]

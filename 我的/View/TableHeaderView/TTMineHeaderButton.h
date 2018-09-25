@@ -14,4 +14,5 @@
 @property(nonatomic, strong) UILabel *titleLab;
 @property(nonatomic, strong) UIView *redPointView;
 
+- (instancetype)initWithTitle:(NSString *)title;
 @end

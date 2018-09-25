@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TTMineCoinButton : UIButton
+
 @property (nonatomic, strong) UIImageView *backImg;
 @property (nonatomic, strong) UILabel *countLab;
 @property (nonatomic, strong) UILabel *nameLab;
+
+- (instancetype)initWithImage:(NSString *)imgName title:(NSString *)title;
 @end
