@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TTCustomViewController.h"
+#import "TTMineController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    TTCustomViewController *vc = [TTCustomViewController new];
+//    TTCustomViewController *vc = [TTCustomViewController new];
+    TTMineController *vc = [TTMineController new];
     self.window = [UIWindow new];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = vc;
