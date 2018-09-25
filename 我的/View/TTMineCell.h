@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIImageView *iconImg;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UIImageView *rightArrow;
-@property(nonatomic, strong) UIView *redPointView;
+@property (nonatomic, strong) UIView *redPointView;
 
--(void)iconName:(NSString *)iconName titleStr:(NSString *)title;
+@property (nonatomic, copy) NSDictionary *data;
 @end

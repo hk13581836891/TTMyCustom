@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TTMineController : UITableViewController
-
+-(NSArray *)listArray;
 @end

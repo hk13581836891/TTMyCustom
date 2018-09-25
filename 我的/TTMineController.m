@@ -30,6 +30,15 @@
     
     [self.tableView registerClass:[TTMineCell class] forCellReuseIdentifier:NSStringFromClass([TTMineCell class])];
 }
+-(NSArray *)listArray{
+    return @[@[@{@"iconName" : @"my_icon_message", @"titleStr" : @"我的消息"}],
+             @[@{@"iconName" : @"my_icon_vip", @"titleStr" : @"我的会员"},
+               @{@"iconName" : @"my_icon_task", @"titleStr" : @"每日任务"},
+               @{@"iconName" : @"my_icon_card", @"titleStr" : @"我的球星卡"}],
+             @[@{@"iconName" : @"my_icon_opinion", @"titleStr" : @"意见反馈"},
+               @{@"iconName" : @"my_icon_set", @"titleStr" : @"设置"}]
+             ];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -57,29 +66,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TTMineCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TTMineCell class])];
-    if (indexPath.section == 0) {
-        [cell iconName:@"my_icon_message" titleStr:@"我的消息"];return cell;
-    }
-    if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            [cell iconName:@"my_icon_vip" titleStr:@"我的会员"];return cell;
-        }
-        if (indexPath.row == 1) {
-            [cell iconName:@"my_icon_task" titleStr:@"每日任务"];return cell;
-        }
-        if (indexPath.row == 2) {
-            [cell iconName:@"my_icon_card" titleStr:@"我的球星卡"];return cell;
-        }
-    }
-    if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
-            [cell iconName:@"my_icon_opinion" titleStr:@"意见反馈"];return cell;
-        }
-        if (indexPath.row == 1) {
-            [cell iconName:@"my_icon_set" titleStr:@"设置"];return cell;
-        }
-    }
-    return nil;
+    cell.data = self.listArray[indexPath.section][indexPath.row];
+    return cell;
 }
 
 

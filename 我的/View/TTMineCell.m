@@ -10,7 +10,11 @@
 #import "MasonryHeader.h"
 
 @implementation TTMineCell
-
+-(void)setData:(NSDictionary *)data{
+    _data = data;
+    _iconImg.image = [UIImage imageNamed:[data objectForKey:@"iconName"]];
+    _titleLab.text = [data objectForKey:@"titleStr"];
+}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -19,10 +23,7 @@
     }
     return self;
 }
--(void)iconName:(NSString *)iconName titleStr:(NSString *)title{
-    _iconImg.image = [UIImage imageNamed:iconName];
-    _titleLab.text = title;
-}
+
 #pragma mark 懒加载创建控件
 -(UIImageView *)iconImg{
     if (!_iconImg) {
